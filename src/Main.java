@@ -1,7 +1,13 @@
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.printf("MAIN");
+        JFrame frame = new JFrame("GESTION AULAS ESFOT");
+        frame.setContentPane(new form1().panel1);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.pack();
+        frame.setVisible(true);
     }
 }
