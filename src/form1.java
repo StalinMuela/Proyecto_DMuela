@@ -9,15 +9,15 @@ public class form1 {
     private JPanel panelEstudiante;
     private JTextField userEstudiante;
     private JPasswordField passEstudiante;
-    private JButton INGRESARButton;
-    private JPasswordField passwordField2;
-    private JButton INGRESARButton2;
+    private JButton INGRESARButtonESTUDIANTE;
+    private JPasswordField passAdministrador;
+    private JButton INGRESARButtonADMINISTRADOR;
     private JPanel panelAdministrativo;
-    private JTextField textField2;
-    private JPasswordField passwordField3;
-    private JButton INGRESARButton1;
+    private JTextField userAdministrador;
+    private JPasswordField passProfesor;
+    private JButton INGRESARButtonPROFESOR;
     private JPanel panelProfesor;
-    private JTextField textField3;
+    private JTextField userProfesor;
 
     public form1() {
         comboBox1.addActionListener(new ActionListener() {
@@ -48,7 +48,9 @@ public class form1 {
 
             }
         });
-        INGRESARButton.addActionListener(new ActionListener() {
+
+
+        INGRESARButtonESTUDIANTE.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String url = "jdbc:mysql://localhost:3306/miaulaesfot";
@@ -67,14 +69,72 @@ public class form1 {
                     if(preparedStatement.executeQuery().next()){
                         System.out.printf("Correcto");
                     }else{
-                        System.out.printf("Error");
+                        JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
+                        userEstudiante.setText("");
+                        passEstudiante.setText("");
                     }
-
-                    System.out.printf("CONECTAR BASE");
                 }catch (SQLException E){
                     E.printStackTrace();
                 }
 
+            }
+        });
+        INGRESARButtonPROFESOR.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+                String user = "root";
+                String password = "123456";
+
+                String userTeacher = userProfesor.getText();
+                String passTeacher = passProfesor.getText();
+
+
+                String query = "SELECT * FROM sesionProfesor WHERE user = ? AND password = ?";
+                try(Connection connection = DriverManager.getConnection(url,user,password)){
+                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.setString(1, userTeacher);
+                    preparedStatement.setString(2, passTeacher);
+
+                    if(preparedStatement.executeQuery().next()){
+                        System.out.printf("Correcto");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
+                        userProfesor.setText("");
+                        passProfesor.setText("");
+                    }
+                }catch (SQLException E){
+                    E.printStackTrace();
+                }
+            }
+        });
+        INGRESARButtonADMINISTRADOR.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+                String user = "root";
+                String password = "123456";
+
+                String userAdmin = userAdministrador.getText();
+                String passAdmin = passAdministrador.getText();
+
+
+                String query = "SELECT * FROM sesionProfesor WHERE user = ? AND password = ?";
+                try(Connection connection = DriverManager.getConnection(url,user,password)){
+                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.setString(1, userAdmin);
+                    preparedStatement.setString(2, passAdmin);
+
+                    if(preparedStatement.executeQuery().next()){
+                        System.out.printf("Correcto");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
+                        userAdministrador.setText("");
+                        passAdministrador.setText("");
+                    }
+                }catch (SQLException E){
+                    E.printStackTrace();
+                }
             }
         });
     }

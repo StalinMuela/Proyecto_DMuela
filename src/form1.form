@@ -53,7 +53,7 @@
           <opaque value="true"/>
           <requestFocusEnabled value="true"/>
           <verifyInputWhenFocusTarget value="true"/>
-          <visible value="true"/>
+          <visible value="false"/>
         </properties>
         <border type="none" title="Estudiante" title-justification="1">
           <font name="Franklin Gothic Heavy" size="14" style="0"/>
@@ -83,7 +83,7 @@
               <foreground color="-16711423"/>
             </properties>
           </component>
-          <component id="d6851" class="javax.swing.JButton" binding="INGRESARButton" default-binding="true">
+          <component id="d6851" class="javax.swing.JButton" binding="INGRESARButtonESTUDIANTE">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -164,7 +164,7 @@
               <text value="USUARIO"/>
             </properties>
           </component>
-          <component id="313d9" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+          <component id="313d9" class="javax.swing.JTextField" binding="userProfesor">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -188,7 +188,7 @@
               <text value="CONTRASEÑA"/>
             </properties>
           </component>
-          <component id="c5bcb" class="javax.swing.JPasswordField" binding="passwordField3" default-binding="true">
+          <component id="c5bcb" class="javax.swing.JPasswordField" binding="passProfesor">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -200,7 +200,7 @@
               <foreground color="-16711423"/>
             </properties>
           </component>
-          <component id="48b13" class="javax.swing.JButton" binding="INGRESARButton1" default-binding="true">
+          <component id="48b13" class="javax.swing.JButton" binding="INGRESARButtonPROFESOR">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -239,7 +239,7 @@
           <opaque value="true"/>
           <requestFocusEnabled value="true"/>
           <verifyInputWhenFocusTarget value="true"/>
-          <visible value="false"/>
+          <visible value="true"/>
         </properties>
         <border type="none" title="Administrador">
           <font name="Franklin Gothic Heavy" size="14" style="0"/>
@@ -257,7 +257,7 @@
               <text value="USUARIO"/>
             </properties>
           </component>
-          <component id="8c7d0" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+          <component id="8c7d0" class="javax.swing.JTextField" binding="userAdministrador">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -280,7 +280,7 @@
               <text value="CONTRASEÑA"/>
             </properties>
           </component>
-          <component id="ecd7" class="javax.swing.JPasswordField" binding="passwordField2" default-binding="true">
+          <component id="ecd7" class="javax.swing.JPasswordField" binding="passAdministrador">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -292,7 +292,7 @@
               <foreground color="-16711423"/>
             </properties>
           </component>
-          <component id="73c7" class="javax.swing.JButton" binding="INGRESARButton2" default-binding="true">
+          <component id="73c7" class="javax.swing.JButton" binding="INGRESARButtonADMINISTRADOR">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
