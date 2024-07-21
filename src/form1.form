@@ -53,7 +53,7 @@
           <opaque value="true"/>
           <requestFocusEnabled value="true"/>
           <verifyInputWhenFocusTarget value="true"/>
-          <visible value="false"/>
+          <visible value="true"/>
         </properties>
         <border type="none" title="Estudiante" title-justification="1">
           <font name="Franklin Gothic Heavy" size="14" style="0"/>
@@ -239,7 +239,7 @@
           <opaque value="true"/>
           <requestFocusEnabled value="true"/>
           <verifyInputWhenFocusTarget value="true"/>
-          <visible value="true"/>
+          <visible value="false"/>
         </properties>
         <border type="none" title="Administrador">
           <font name="Franklin Gothic Heavy" size="14" style="0"/>

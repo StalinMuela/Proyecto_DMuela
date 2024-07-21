@@ -53,16 +53,16 @@ public class form1 {
         INGRESARButtonESTUDIANTE.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+                String url = "jdbc:mysql://localhost:3306/miaulaesfot2024";
                 String user = "root";
                 String password = "123456";
 
                 String userStudent = userEstudiante.getText();
                 String passwordStudent = passEstudiante.getText();
 
-                String query = "SELECT * FROM sesionEstudiante WHERE user = ? AND password = ?";
+                String queryestudent = "SELECT * FROM sesionestudiante WHERE userstudent = ? AND passstudente = ?";
                 try(Connection connection = DriverManager.getConnection(url,user,password)){
-                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+                    PreparedStatement preparedStatement = connection.prepareStatement(queryestudent);
                     preparedStatement.setString(1, userStudent);
                     preparedStatement.setString(2, passwordStudent);
 
@@ -82,7 +82,7 @@ public class form1 {
         INGRESARButtonPROFESOR.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+                String url = "jdbc:mysql://localhost:3306/miaulaesfot2024";
                 String user = "root";
                 String password = "123456";
 
@@ -90,7 +90,7 @@ public class form1 {
                 String passTeacher = passProfesor.getText();
 
 
-                String query = "SELECT * FROM sesionProfesor WHERE user = ? AND password = ?";
+                String query = "SELECT * FROM sesionprofesor WHERE userteacher = ? AND passteacher = ?";
                 try(Connection connection = DriverManager.getConnection(url,user,password)){
                     PreparedStatement preparedStatement = connection.prepareStatement(query);
                     preparedStatement.setString(1, userTeacher);
@@ -111,7 +111,7 @@ public class form1 {
         INGRESARButtonADMINISTRADOR.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+                String url = "jdbc:mysql://localhost:3306/miaulaesfot2024";
                 String user = "root";
                 String password = "123456";
 
@@ -119,7 +119,7 @@ public class form1 {
                 String passAdmin = passAdministrador.getText();
 
 
-                String query = "SELECT * FROM sesionProfesor WHERE user = ? AND password = ?";
+                String query = "SELECT * FROM sesionadministrador WHERE useradmin = ? AND passadmin = ?";
                 try(Connection connection = DriverManager.getConnection(url,user,password)){
                     PreparedStatement preparedStatement = connection.prepareStatement(query);
                     preparedStatement.setString(1, userAdmin);
@@ -127,6 +127,12 @@ public class form1 {
 
                     if(preparedStatement.executeQuery().next()){
                         System.out.printf("Correcto");
+                        JFrame frame = new JFrame();
+                        frame.setContentPane(new PerfilAdmin().paneladmin);
+                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        frame.setSize(200,300);
+                        frame.pack();
+                        frame.setVisible(true);
                     }else{
                         JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
                         userAdministrador.setText("");
