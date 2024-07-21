@@ -1,16 +1,14 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class form1 {
     public JPanel panel1;
     private JComboBox comboBox1;
     private JPanel panelEstudiante;
-    private JTextField textField1;
-    private JPasswordField passwordField1;
+    private JTextField userEstudiante;
+    private JPasswordField passEstudiante;
     private JButton INGRESARButton;
     private JPasswordField passwordField2;
     private JButton INGRESARButton2;
@@ -25,9 +23,6 @@ public class form1 {
         comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
 
                 String eleccion = (String) comboBox1.getSelectedItem();
                 switch (eleccion) {
@@ -51,14 +46,34 @@ public class form1 {
                         break;
                 }
 
+            }
+        });
+        INGRESARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+                String user = "root";
+                String password = "123456";
+
+                String userStudent = userEstudiante.getText();
+                String passwordStudent = passEstudiante.getText();
+
+                String query = "SELECT * FROM sesionEstudiante WHERE user = ? AND password = ?";
                 try(Connection connection = DriverManager.getConnection(url,user,password)){
+                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.setString(1, userStudent);
+                    preparedStatement.setString(2, passwordStudent);
+
+                    if(preparedStatement.executeQuery().next()){
+                        System.out.printf("Correcto");
+                    }else{
+                        System.out.printf("Error");
+                    }
 
                     System.out.printf("CONECTAR BASE");
                 }catch (SQLException E){
                     E.printStackTrace();
                 }
-
-
 
             }
         });
