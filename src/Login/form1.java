@@ -1,4 +1,8 @@
+package Login;
+
+import Administrador.*;
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -53,7 +57,7 @@ public class form1 {
         INGRESARButtonESTUDIANTE.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot2024";
+                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
                 String user = "root";
                 String password = "123456";
 
@@ -82,7 +86,7 @@ public class form1 {
         INGRESARButtonPROFESOR.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot2024";
+                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
                 String user = "root";
                 String password = "123456";
 
@@ -111,7 +115,7 @@ public class form1 {
         INGRESARButtonADMINISTRADOR.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot2024";
+                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
                 String user = "root";
                 String password = "123456";
 

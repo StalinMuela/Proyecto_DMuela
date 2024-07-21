@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="form1">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Login.form1">
   <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="12" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="15" left="15" bottom="15" right="15"/>
     <constraints>
@@ -327,13 +327,13 @@
       </component>
       <component id="d02ca" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-15329766"/>
           <font name="Franklin Gothic Heavy" size="26" style="0"/>
           <foreground color="-2"/>
-          <text value="LOGIN"/>
+          <text value="LOGIN MI AULA ESFOT"/>
         </properties>
       </component>
       <component id="858af" class="javax.swing.JLabel">
