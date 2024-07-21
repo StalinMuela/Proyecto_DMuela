@@ -1,140 +1,361 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="form1">
-  <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="5" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="0" left="0" bottom="0" right="0"/>
+  <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="12" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="15" left="15" bottom="15" right="15"/>
     <constraints>
-      <xy x="20" y="20" width="528" height="511"/>
+      <xy x="56" y="20" width="538" height="467"/>
     </constraints>
     <properties>
-      <preferredSize width="300" height="300"/>
+      <autoscrolls value="false"/>
+      <background color="-15329766"/>
+      <preferredSize width="410" height="500"/>
       <visible value="true"/>
     </properties>
     <border type="none"/>
     <children>
       <component id="a452a" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
         <constraints>
-          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-13846915"/>
+          <editable value="false"/>
+          <enabled value="true"/>
+          <focusCycleRoot value="false"/>
+          <focusTraversalPolicyProvider value="false"/>
+          <focusable value="false"/>
+          <foreground color="-2"/>
+          <inheritsPopupMenu value="false"/>
           <model>
             <item value="Estudiante"/>
             <item value="Profesor"/>
             <item value="Administrador"/>
           </model>
+          <opaque value="true"/>
+          <popupVisible value="false"/>
+          <requestFocusEnabled value="true"/>
+          <verifyInputWhenFocusTarget value="true"/>
         </properties>
       </component>
-      <component id="eddf5" class="javax.swing.JLabel">
+      <grid id="d5f84" binding="panelEstudiante" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="20" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="8" col-span="3" vsize-policy="3" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <alignmentY value="0.5"/>
-          <text value="INICIO DE SESION"/>
-        </properties>
-        <clientProperties>
-          <html.disable class="java.lang.Boolean" value="false"/>
-        </clientProperties>
-      </component>
-      <hspacer id="cb260">
-        <constraints>
-          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
-      <hspacer id="e3c59">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
-      <component id="6db74" class="javax.swing.JLabel" binding="label">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Label"/>
-        </properties>
-      </component>
-      <grid id="d5f84" binding="panelEstudiante" layout-manager="GridLayoutManager" row-count="6" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-3552823"/>
+          <autoscrolls value="false"/>
+          <background color="-15329766"/>
+          <enabled value="true"/>
+          <focusCycleRoot value="false"/>
+          <focusTraversalPolicyProvider value="false"/>
           <focusable value="true"/>
-          <visible value="true"/>
+          <foreground color="-13846915"/>
+          <opaque value="true"/>
+          <requestFocusEnabled value="true"/>
+          <verifyInputWhenFocusTarget value="true"/>
+          <visible value="false"/>
         </properties>
-        <border type="none"/>
+        <border type="none" title="Estudiante" title-justification="1">
+          <font name="Franklin Gothic Heavy" size="14" style="0"/>
+          <title-color color="-13846915"/>
+        </border>
         <children>
-          <component id="aa534" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Ingresar Datos de Estudiante"/>
-            </properties>
-          </component>
-          <component id="2c0be" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Label"/>
-            </properties>
-          </component>
-          <component id="ac5e2" class="javax.swing.JTextField" binding="textField1" default-binding="true">
-            <constraints>
-              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
           <component id="2191b" class="javax.swing.JLabel">
             <constraints>
-              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <background color="-13846915"/>
+              <font name="Franklin Gothic Medium" size="14" style="1"/>
+              <foreground color="-13846915"/>
+              <text value="CONTRASEÑA"/>
             </properties>
           </component>
           <component id="d8700" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
             <constraints>
-              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="1" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-328961"/>
+              <font name="Franklin Gothic Medium" size="14" style="0"/>
+              <foreground color="-16711423"/>
+            </properties>
           </component>
-          <component id="d6851" class="javax.swing.JButton" binding="button1" default-binding="true">
+          <component id="d6851" class="javax.swing.JButton" binding="INGRESARButton" default-binding="true">
             <constraints>
-              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Button"/>
+              <background color="-13846915"/>
+              <font name="Franklin Gothic Demi" size="16" style="0"/>
+              <foreground color="-7"/>
+              <text value="INGRESAR"/>
             </properties>
           </component>
           <hspacer id="357c1">
             <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
           <hspacer id="a7d27">
             <constraints>
-              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="ac5e2" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="1" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-328961"/>
+              <font name="Franklin Gothic Medium" size="14" style="0"/>
+              <foreground color="-16711423"/>
+              <horizontalAlignment value="2"/>
+            </properties>
+          </component>
+          <component id="2c0be" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13846915"/>
+              <font name="Franklin Gothic Medium" size="14" style="1"/>
+              <foreground color="-13846915"/>
+              <text value="USUARIO"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="3bcd2" binding="panelProfesor" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="8" column="0" row-span="4" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <autoscrolls value="false"/>
+          <background color="-15329766"/>
+          <enabled value="true"/>
+          <focusCycleRoot value="false"/>
+          <focusTraversalPolicyProvider value="false"/>
+          <focusable value="true"/>
+          <foreground color="-3552823"/>
+          <opaque value="true"/>
+          <requestFocusEnabled value="true"/>
+          <verifyInputWhenFocusTarget value="true"/>
+          <visible value="false"/>
+        </properties>
+        <border type="none" title="Profesor">
+          <font name="Franklin Gothic Heavy" size="14" style="0"/>
+          <title-color color="-13846915"/>
+        </border>
+        <children>
+          <component id="8b29a" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13846915"/>
+              <font name="Franklin Gothic Medium" size="14" style="1"/>
+              <foreground color="-13846915"/>
+              <text value="USUARIO"/>
+            </properties>
+          </component>
+          <component id="313d9" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-328961"/>
+              <font name="Franklin Gothic Medium" size="14" style="0"/>
+              <foreground color="-16711423"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="21f9e" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13846915"/>
+              <font name="Franklin Gothic Medium" size="14" style="1"/>
+              <foreground color="-13846915"/>
+              <text value="CONTRASEÑA"/>
+            </properties>
+          </component>
+          <component id="c5bcb" class="javax.swing.JPasswordField" binding="passwordField3" default-binding="true">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-328961"/>
+              <font name="Franklin Gothic Medium" size="14" style="0"/>
+              <foreground color="-16711423"/>
+            </properties>
+          </component>
+          <component id="48b13" class="javax.swing.JButton" binding="INGRESARButton1" default-binding="true">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13846915"/>
+              <font name="Franklin Gothic Demi" size="16" style="0"/>
+              <foreground color="-7"/>
+              <text value="INGRESAR"/>
+            </properties>
+          </component>
+          <hspacer id="33343">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="a62d0">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
         </children>
       </grid>
-      <hspacer id="e3a49">
+      <grid id="10fc3" binding="panelAdministrativo" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="10" column="0" row-span="2" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-      </hspacer>
-      <hspacer id="b0e7d">
+        <properties>
+          <autoscrolls value="false"/>
+          <background color="-15329766"/>
+          <enabled value="true"/>
+          <focusCycleRoot value="false"/>
+          <focusTraversalPolicyProvider value="false"/>
+          <focusable value="true"/>
+          <foreground color="-7"/>
+          <opaque value="true"/>
+          <requestFocusEnabled value="true"/>
+          <verifyInputWhenFocusTarget value="true"/>
+          <visible value="true"/>
+        </properties>
+        <border type="none" title="Administrador">
+          <font name="Franklin Gothic Heavy" size="14" style="0"/>
+          <title-color color="-13846915"/>
+        </border>
+        <children>
+          <component id="fc63" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13846915"/>
+              <font name="Franklin Gothic Medium" size="14" style="1"/>
+              <foreground color="-13846915"/>
+              <text value="USUARIO"/>
+            </properties>
+          </component>
+          <component id="8c7d0" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-328961"/>
+              <font name="Franklin Gothic Medium" size="14" style="0"/>
+              <foreground color="-16711423"/>
+            </properties>
+          </component>
+          <component id="9c869" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13846915"/>
+              <font name="Franklin Gothic Medium" size="14" style="1"/>
+              <foreground color="-13846915"/>
+              <text value="CONTRASEÑA"/>
+            </properties>
+          </component>
+          <component id="ecd7" class="javax.swing.JPasswordField" binding="passwordField2" default-binding="true">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-328961"/>
+              <font name="Franklin Gothic Medium" size="14" style="0"/>
+              <foreground color="-16711423"/>
+            </properties>
+          </component>
+          <component id="73c7" class="javax.swing.JButton" binding="INGRESARButton2" default-binding="true">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13846915"/>
+              <font name="Franklin Gothic Demi" size="16" style="0"/>
+              <foreground color="-7"/>
+              <text value="INGRESAR"/>
+              <visible value="true"/>
+            </properties>
+          </component>
+          <hspacer id="94085">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="5ba00">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+        </children>
+      </grid>
+      <component id="13b9d" class="javax.swing.JLabel">
         <constraints>
-          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
-      </hspacer>
+        <properties>
+          <foreground color="-2"/>
+          <text value="MODO :"/>
+        </properties>
+      </component>
+      <component id="d02ca" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-15329766"/>
+          <font name="Franklin Gothic Heavy" size="26" style="0"/>
+          <foreground color="-2"/>
+          <text value="LOGIN"/>
+        </properties>
+      </component>
+      <component id="858af" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Britannic Bold" size="16" style="1"/>
+          <foreground color="-13846915"/>
+          <text value="-------------------------------------------------------------------------------------"/>
+        </properties>
+      </component>
+      <component id="d54e" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Britannic Bold" size="16" style="1"/>
+          <foreground color="-13846915"/>
+          <text value="-------------------------------------------------------------------------------------"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
