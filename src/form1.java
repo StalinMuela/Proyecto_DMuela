@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class form1 {
     public JPanel panel1;
@@ -22,6 +25,10 @@ public class form1 {
         comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+                String user = "root";
+                String password = "123456";
+
                 String eleccion = (String) comboBox1.getSelectedItem();
                 switch (eleccion) {
                     case "Estudiante":
@@ -43,6 +50,14 @@ public class form1 {
                         System.out.printf("ERROR");
                         break;
                 }
+
+                try(Connection connection = DriverManager.getConnection(url,user,password)){
+
+                    System.out.printf("CONECTAR BASE");
+                }catch (SQLException E){
+                    E.printStackTrace();
+                }
+
 
 
             }
