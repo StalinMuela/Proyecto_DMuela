@@ -34,7 +34,6 @@ public class AgregarAdmin {
                     case "Aula":
                         AgregarAula.setVisible(true);
                         AgregarLab.setVisible(false);
-                        codigoAula.setText("");
                         break;
                     case "Laboratorio":
                         AgregarAula.setVisible(false);
