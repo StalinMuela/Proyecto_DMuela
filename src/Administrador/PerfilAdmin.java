@@ -36,7 +36,11 @@ public class PerfilAdmin {
         BORRARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                JFrame frame = new JFrame();
+                frame.setContentPane(new BorrarAdmin().AdminBorrar);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
             }
         });
     }
