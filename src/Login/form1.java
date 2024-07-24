@@ -1,6 +1,8 @@
 package Login;
 
 import Administrador.*;
+import Profesores.PerfilProfesores;
+
 import javax.swing.*;
 
 import java.awt.event.ActionEvent;
@@ -101,7 +103,13 @@ public class form1 {
                     preparedStatement.setString(2, passTeacher);
 
                     if(preparedStatement.executeQuery().next()){
-                        System.out.printf("Correcto");
+                        JFrame panel = new JFrame();
+                        panel.setContentPane(new PerfilProfesores().perfilProfesor);
+                        panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        panel.pack();
+                        panel.setVisible(true);
+
+
                     }else{
                         JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
                         userProfesor.setText("");
