@@ -27,16 +27,6 @@
           <title-color color="-13846915"/>
         </border>
         <children>
-          <component id="90e50" class="javax.swing.JButton" binding="VISUALIZARButton" default-binding="true">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-13846915"/>
-              <foreground color="-328961"/>
-              <text value="VISUALIZAR"/>
-            </properties>
-          </component>
           <component id="7ed0a" class="javax.swing.JButton" binding="BORRARButton" default-binding="true">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
@@ -55,6 +45,26 @@
               <background color="-13846915"/>
               <foreground color="-328961"/>
               <text value="AGREGAR"/>
+            </properties>
+          </component>
+          <component id="90e50" class="javax.swing.JButton" binding="VISUALIZARButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13846915"/>
+              <foreground color="-328961"/>
+              <text value="VISUALIZAR"/>
+            </properties>
+          </component>
+          <component id="e6b6b" class="javax.swing.JButton" binding="ACTUALIZARButton">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13846915"/>
+              <foreground color="-328961"/>
+              <text value="ACTUALIZAR"/>
             </properties>
           </component>
         </children>

@@ -11,6 +11,7 @@ public class PerfilAdmin {
     private JButton AGREGARButton;
     private JButton VISUALIZARButton;
     private JButton BORRARButton;
+    private JButton ACTUALIZARButton;
 
     public PerfilAdmin() {
         AGREGARButton.addActionListener(new ActionListener() {
@@ -40,6 +41,17 @@ public class PerfilAdmin {
                 frame.setContentPane(new BorrarAdmin().AdminBorrar);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
+                frame.setVisible(true);
+            }
+        });
+        VISUALIZARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("MostrarAdmin");
+                frame.setContentPane(new MostrarAdmin().mostrarAdmin);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setSize(800, 600);
                 frame.setVisible(true);
             }
         });

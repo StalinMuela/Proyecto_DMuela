@@ -16,6 +16,7 @@ public class BorrarAdmin {
     private JPanel BorrarAula;
     private JTextField labelaula;
     private JButton BORRARButtonAULA;
+    private JButton REGRESARButton;
 
     public BorrarAdmin() {
         comboBox1.addActionListener(new ActionListener() {
@@ -117,6 +118,17 @@ public class BorrarAdmin {
                         A.printStackTrace();
                     }
                 }
+            }
+        });
+        REGRESARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane(new PerfilAdmin().paneladmin);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(200,300);
+                frame.pack();
+                frame.setVisible(true);
             }
         });
     }
