@@ -11,7 +11,6 @@ public class PerfilAdmin {
     private JButton AGREGARButton;
     private JButton VISUALIZARButton;
     private JButton BORRARButton;
-    private JButton ACTUALIZARButton;
 
     public PerfilAdmin() {
         AGREGARButton.addActionListener(new ActionListener() {

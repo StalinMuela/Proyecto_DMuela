@@ -103,7 +103,7 @@ public class form1 {
                     preparedStatement.setString(2, passTeacher);
 
                     if(preparedStatement.executeQuery().next()){
-                        JFrame panel = new JFrame();
+                        JFrame panel = new JFrame("Perfil Profesor");
                         panel.setContentPane(new PerfilProfesores().perfilProfesor);
                         panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         panel.pack();
@@ -140,8 +140,7 @@ public class form1 {
                     preparedStatement.setString(2, passAdmin);
 
                     if(preparedStatement.executeQuery().next()){
-                        System.out.printf("Correcto");
-                        JFrame frame = new JFrame();
+                        JFrame frame = new JFrame("Perfil Administrador");
                         frame.setContentPane(new PerfilAdmin().paneladmin);
                         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         frame.setSize(200,300);

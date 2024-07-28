@@ -23,6 +23,7 @@ public class ReservarProfesores {
     private JButton visualizarButton1;
     private JButton RESERVARButton;
     private JPanel reservarLab;
+    private JButton Regresaar;
 
     public ReservarProfesores() {
         comboBox1.addActionListener(new ActionListener() {
@@ -224,6 +225,18 @@ public class ReservarProfesores {
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
+            }
+        });
+        Regresaar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane(new PerfilProfesores().perfilProfesor);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(Regresaar)).dispose();
+
             }
         });
     }

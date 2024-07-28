@@ -98,9 +98,9 @@ public class BorrarAdmin {
                     }
                     int intento = consulta.executeUpdate();
                     if(intento>0){
-                        JOptionPane.showMessageDialog(null, "Borrado el Laboratorio");
+                        JOptionPane.showMessageDialog(null, "Borrado el Aula");
                     }else{
-                        JOptionPane.showMessageDialog(null, "No se pudo borrar el Laboratorio");
+                        JOptionPane.showMessageDialog(null, "No se pudo borrar el Aula");
                     }
 
 

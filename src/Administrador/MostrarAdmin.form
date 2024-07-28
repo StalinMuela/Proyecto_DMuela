@@ -51,6 +51,7 @@
               <background color="-16769218"/>
               <foreground color="-2"/>
               <gridColor color="-2"/>
+              <selectionBackground color="-14207895"/>
             </properties>
           </component>
           <hspacer id="63fb5">
