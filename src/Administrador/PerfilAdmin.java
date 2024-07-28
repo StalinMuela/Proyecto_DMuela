@@ -22,6 +22,8 @@ public class PerfilAdmin {
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(AGREGARButton)).dispose();
+
             }
         });
         CERRARSESIONButton.addActionListener(new ActionListener() {
@@ -44,6 +46,8 @@ public class PerfilAdmin {
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(BORRARButton)).dispose();
+
             }
         });
         VISUALIZARButton.addActionListener(new ActionListener() {
@@ -55,6 +59,9 @@ public class PerfilAdmin {
                 frame.pack();
                 frame.setSize(800, 600);
                 frame.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(VISUALIZARButton)).dispose();
+
+
             }
         });
     }

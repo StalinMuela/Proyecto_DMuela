@@ -89,17 +89,6 @@ public class AgregarAdmin {
             }
         });
 
-        REGRESARButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame();
-                frame.setContentPane(new PerfilAdmin().paneladmin);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(200,300);
-                frame.pack();
-                frame.setVisible(true);
-            }
-        });
         agregarLabButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -144,7 +133,8 @@ public class AgregarAdmin {
                 }
             }
         });
-        REGRESARButton1.addActionListener(new ActionListener() {
+
+        REGRESARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame();
@@ -153,7 +143,7 @@ public class AgregarAdmin {
                 frame.setSize(200,300);
                 frame.pack();
                 frame.setVisible(true);
-                ((JFrame) SwingUtilities.getWindowAncestor(REGRESARButton1)).dispose();
+                ((JFrame) SwingUtilities.getWindowAncestor(REGRESARButton)).dispose();
 
             }
         });

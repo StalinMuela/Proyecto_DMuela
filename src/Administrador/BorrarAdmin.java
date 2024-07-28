@@ -129,6 +129,8 @@ public class BorrarAdmin {
                 frame.setSize(200,300);
                 frame.pack();
                 frame.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(REGRESARButton)).dispose();
+
             }
         });
     }
