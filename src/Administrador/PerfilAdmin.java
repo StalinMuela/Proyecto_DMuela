@@ -32,6 +32,8 @@ public class PerfilAdmin {
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(CERRARSESIONButton)).dispose();
+
             }
         });
         BORRARButton.addActionListener(new ActionListener() {

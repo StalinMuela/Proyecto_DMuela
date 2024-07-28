@@ -153,6 +153,8 @@ public class AgregarAdmin {
                 frame.setSize(200,300);
                 frame.pack();
                 frame.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(REGRESARButton1)).dispose();
+
             }
         });
     }

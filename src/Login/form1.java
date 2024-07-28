@@ -108,6 +108,8 @@ public class form1 {
                         panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         panel.pack();
                         panel.setVisible(true);
+                        ((JFrame) SwingUtilities.getWindowAncestor(INGRESARButtonPROFESOR)).dispose();
+
 
 
                     }else{
@@ -145,6 +147,8 @@ public class form1 {
                         frame.setSize(200,300);
                         frame.pack();
                         frame.setVisible(true);
+                        ((JFrame) SwingUtilities.getWindowAncestor(INGRESARButtonADMINISTRADOR)).dispose();
+
                     }else{
                         JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
                         userAdministrador.setText("");

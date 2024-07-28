@@ -11,16 +11,6 @@ public class PerfilProfesores {
 
 
     public PerfilProfesores() {
-        Visualizar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame();
-                frame.setContentPane(new VisualizarProfesores().visualizarpanel);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.pack();
-                frame.setVisible(true);
-            }
-        });
         RESERVARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
