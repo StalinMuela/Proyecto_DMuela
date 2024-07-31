@@ -1,6 +1,7 @@
 package Login;
 
 import Administrador.*;
+import Estudiantes.PerfilEstudiante;
 import Profesores.PerfilProfesores;
 
 import javax.swing.*;
@@ -73,7 +74,13 @@ public class form1 {
                     preparedStatement.setString(2, passwordStudent);
 
                     if(preparedStatement.executeQuery().next()){
-                        System.out.printf("Correcto");
+                        JFrame frame = new JFrame();
+                        frame.setContentPane(new PerfilEstudiante().panelEstudiante);
+                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        frame.pack();
+                        frame.setVisible(true);
+                        ((JFrame) SwingUtilities.getWindowAncestor(INGRESARButtonESTUDIANTE)).dispose();
+
                     }else{
                         JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
                         userEstudiante.setText("");
