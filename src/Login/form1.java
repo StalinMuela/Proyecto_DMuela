@@ -25,6 +25,10 @@ public class form1 {
     private JButton INGRESARButtonPROFESOR;
     private JPanel panelProfesor;
     private JTextField userProfesor;
+    private static String nombreUsuario = "";
+    private static String tipoUsuario = "";
+
+
 
     public form1() {
         comboBox1.addActionListener(new ActionListener() {
@@ -74,6 +78,10 @@ public class form1 {
                     preparedStatement.setString(2, passwordStudent);
 
                     if(preparedStatement.executeQuery().next()){
+                        // Set global user info
+                        nombreUsuario = userStudent;
+                        tipoUsuario = "estudiante";
+
                         JFrame frame = new JFrame();
                         frame.setContentPane(new PerfilEstudiante().panelEstudiante);
                         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,6 +100,7 @@ public class form1 {
 
             }
         });
+
         INGRESARButtonPROFESOR.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -102,7 +111,6 @@ public class form1 {
                 String userTeacher = userProfesor.getText();
                 String passTeacher = passProfesor.getText();
 
-
                 String query = "SELECT * FROM sesionprofesor WHERE userteacher = ? AND passteacher = ?";
                 try(Connection connection = DriverManager.getConnection(url,user,password)){
                     PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -110,14 +118,16 @@ public class form1 {
                     preparedStatement.setString(2, passTeacher);
 
                     if(preparedStatement.executeQuery().next()){
+                        // Set global user info
+                        nombreUsuario = userTeacher;
+                        tipoUsuario = "profesor";
+
                         JFrame panel = new JFrame("Perfil Profesor");
                         panel.setContentPane(new PerfilProfesores().perfilProfesor);
                         panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         panel.pack();
                         panel.setVisible(true);
                         ((JFrame) SwingUtilities.getWindowAncestor(INGRESARButtonPROFESOR)).dispose();
-
-
 
                     }else{
                         JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
@@ -129,6 +139,7 @@ public class form1 {
                 }
             }
         });
+
         INGRESARButtonADMINISTRADOR.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -139,7 +150,6 @@ public class form1 {
                 String userAdmin = userAdministrador.getText();
                 String passAdmin = passAdministrador.getText();
 
-
                 String query = "SELECT * FROM sesionadministrador WHERE useradmin = ? AND passadmin = ?";
                 try(Connection connection = DriverManager.getConnection(url,user,password)){
                     PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -147,6 +157,10 @@ public class form1 {
                     preparedStatement.setString(2, passAdmin);
 
                     if(preparedStatement.executeQuery().next()){
+                        // Set global user info
+                        nombreUsuario = userAdmin;
+                        tipoUsuario = "administrador";
+
                         JFrame frame = new JFrame("Perfil Administrador");
                         frame.setContentPane(new PerfilAdmin().paneladmin);
                         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -165,5 +179,6 @@ public class form1 {
                 }
             }
         });
+
     }
 }

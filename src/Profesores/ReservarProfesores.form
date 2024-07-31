@@ -20,7 +20,7 @@
         <properties>
           <autoscrolls value="false"/>
           <background color="-16769218"/>
-          <visible value="true"/>
+          <visible value="false"/>
         </properties>
         <border type="none" title="Aula">
           <font/>
@@ -182,7 +182,7 @@
         <properties>
           <autoscrolls value="false"/>
           <background color="-16769218"/>
-          <visible value="false"/>
+          <visible value="true"/>
         </properties>
         <border type="none" title="Laboratorio">
           <font/>
@@ -198,7 +198,7 @@
               <text value="CODIGO LAB"/>
             </properties>
           </component>
-          <component id="ddf17" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+          <component id="ddf17" class="javax.swing.JTextField" binding="codigoLAB">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="10" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -206,7 +206,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="8ad8f" class="javax.swing.JButton" binding="CANCELARRESERVAButton" default-binding="true">
+          <component id="8ad8f" class="javax.swing.JButton" binding="CANCELARRESERVAButtonLAB">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -216,7 +216,7 @@
               <text value="CANCELAR RESERVA"/>
             </properties>
           </component>
-          <component id="638ca" class="javax.swing.JButton" binding="RESERVARButton" default-binding="true">
+          <component id="638ca" class="javax.swing.JButton" binding="RESERVARButtonLAB">
             <constraints>
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
