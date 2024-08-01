@@ -80,10 +80,11 @@ public class form1 {
                     if(preparedStatement.executeQuery().next()){
                         // Set global user info
                         nombreUsuario = userStudent;
+
                         tipoUsuario = "estudiante";
 
                         JFrame frame = new JFrame();
-                        frame.setContentPane(new PerfilEstudiante().panelEstudiante);
+                        frame.setContentPane(new PerfilEstudiante().panelEstudiantes);
                         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         frame.pack();
                         frame.setVisible(true);

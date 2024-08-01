@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Estudiantes.PerfilEstudiante">
-  <grid id="27dc6" binding="panelEstudiante" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="0" left="0" bottom="0" right="0"/>
+  <grid id="27dc6" binding="panelEstudiantes" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="20" left="20" bottom="20" right="20"/>
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
     <properties>
+      <background color="-14801079"/>
+      <foreground color="-2"/>
       <preferredSize width="400" height="400"/>
     </properties>
     <border type="none"/>
-    <children/>
+    <children>
+      <component id="cecf4" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-2104859"/>
+          <foreground color="-2"/>
+          <text value="MI AULA ESFOT"/>
+        </properties>
+      </component>
+      <component id="6da92" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="Imagenes/LOGO_EPN1 (2).png"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <hspacer id="ecc59">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="62ef" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-2104859"/>
+          <foreground color="-2"/>
+          <text value="PERSONAL ESTUDIANTE"/>
+        </properties>
+      </component>
+      <component id="b8009" class="javax.swing.JButton" binding="CERRARSESIONButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13618113"/>
+          <foreground color="-2"/>
+          <text value="CERRAR SESION"/>
+        </properties>
+      </component>
+      <component id="e4c66" class="javax.swing.JButton" binding="RESERVARAULAButton" default-binding="true">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13618113"/>
+          <foreground color="-2"/>
+          <text value="RESERVAR AULA"/>
+        </properties>
+      </component>
+    </children>
   </grid>
 </form>

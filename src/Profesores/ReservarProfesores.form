@@ -20,7 +20,7 @@
         <properties>
           <autoscrolls value="false"/>
           <background color="-16769218"/>
-          <visible value="false"/>
+          <visible value="true"/>
         </properties>
         <border type="none" title="Aula">
           <font/>
@@ -182,7 +182,7 @@
         <properties>
           <autoscrolls value="false"/>
           <background color="-16769218"/>
-          <visible value="true"/>
+          <visible value="false"/>
         </properties>
         <border type="none" title="Laboratorio">
           <font/>
