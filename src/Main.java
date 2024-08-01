@@ -7,6 +7,11 @@ import Login.*;
 import Profesores.PerfilProfesores;
 import Profesores.ReservarProfesores;
 
+/**
+ * La clase {@code Main} es la clase principal de Mi aula ESFOT.
+ * Su función principal es mostrar el INCIO DE SESIÓN.
+ */
+
 public class Main {
     public static void main(String[] args) {
 
