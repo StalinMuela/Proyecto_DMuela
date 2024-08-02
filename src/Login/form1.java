@@ -3,6 +3,7 @@ package Login;
 import Administrador.*;
 import Estudiantes.PerfilEstudiante;
 import Profesores.PerfilProfesores;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.swing.*;
 
@@ -28,11 +29,68 @@ public class form1 {
     private JButton INGRESARButtonPROFESOR;
     private JPanel panelProfesor;
     private JTextField userProfesor;
+    private JButton registrar;
     private static String nombreUsuario = "";
     private static String tipoUsuario = "";
 
+    private void crearAdminUser() {
+        // Configuración de la conexión a la base de datos
+        String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+        String user = "root";
+        String password = "123456";
+
+        // Datos del usuario admin
+        String adminUsername = "DavidAdmin";
+        String adminPlainPassword = "admin";
+        String adminHashedPassword = BCrypt.hashpw(adminPlainPassword, BCrypt.gensalt());
+
+        // Verificar si el usuario ya existe
+        if (usuarioExiste(adminUsername)) {
+            System.out.println("El usuario administrador fue creado.");
+            return; // Salir del método si el usuario ya existe
+        }
+
+        // Consulta para insertar el usuario admin en la base de datos
+        String query = "INSERT INTO sesionadministrador (useradmin , passadmin) VALUES (?,?)";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            // Configuración de los parámetros de la consulta
+            stmt.setString(1, adminUsername);
+            stmt.setString(2, adminHashedPassword);
+
+            // Ejecución de la consulta
+            stmt.executeUpdate();
+            System.out.println("Usuario admin creado exitosamente.");
+
+        } catch (SQLException e) {
+            // Manejo de errores
+            e.printStackTrace();
+        }
+    }
+
+    private boolean usuarioExiste(String username) {
+        String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+        String user = "root";
+        String password = "123456";
+
+        String query = "SELECT COUNT(*) FROM sesionadministrador WHERE useradmin = ?";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, username);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     public form1() {
+        crearAdminUser();
         // Configura el ActionListener para el ComboBox que cambia entre paneles de usuario
         comboBox1.addActionListener(new ActionListener() {
             /**
@@ -85,11 +143,10 @@ public class form1 {
             }
         });
 
-        // Configuración del ActionListener para el ESTUDIANTE
         INGRESARButtonESTUDIANTE.addActionListener(new ActionListener() {
             /**
-             *
-             * @param e evento que permite mostrar MODULO LOGIN-ESTUDIANTE
+             * Maneja el evento de clic en el botón de inicio de sesión del estudiante.
+             * @param e Evento que permite mostrar el módulo de perfil del estudiante.
              */
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -104,46 +161,48 @@ public class form1 {
                 String passwordStudent = passEstudiante.getText();
 
                 // Consulta SQL para verificar las credenciales del estudiante
-                String queryestudent = "SELECT * FROM sesionestudiante WHERE userstudent = ? AND passstudente = ?";
-                try(Connection connection = DriverManager.getConnection(url,user,password)){
+                String queryestudent = "SELECT passstudente FROM sesionestudiante WHERE userstudent = ?";
+                try (Connection connection = DriverManager.getConnection(url, user, password);
+                     PreparedStatement preparedStatement = connection.prepareStatement(queryestudent)) {
 
-                    // Preparación de la declaración SQL
-                    PreparedStatement preparedStatement = connection.prepareStatement(queryestudent);
                     preparedStatement.setString(1, userStudent);
-                    preparedStatement.setString(2, passwordStudent);
+                    try (ResultSet rs = preparedStatement.executeQuery()) {
+                        if (rs.next()) {
+                            String hashedPassword = rs.getString("passstudente");
+                            if (BCrypt.checkpw(passwordStudent, hashedPassword)) {
+                                // Configuración de la sesión del usuario
+                                nombreUsuario = userStudent;
+                                tipoUsuario = "estudiante";
 
-                    // Ejecución de la consulta y verificación de credenciales
-                    if(preparedStatement.executeQuery().next()){
-                        // Set global user info
-                        nombreUsuario = userStudent;
-                        tipoUsuario = "estudiante";
+                                // Creación del módulo del perfil del estudiante
+                                JFrame frame = new JFrame();
+                                frame.setContentPane(new PerfilEstudiante().panelEstudiantes);
+                                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                frame.pack();
+                                frame.setVisible(true);
 
-                        // Creación del modulo del perfil del estudiante
-                        JFrame frame = new JFrame();
-                        frame.setContentPane(new PerfilEstudiante().panelEstudiantes);
-                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                        frame.pack();
-                        frame.setVisible(true);
-
-                        // Cierre del formulario de inicio de sesión
-                        ((JFrame) SwingUtilities.getWindowAncestor(INGRESARButtonESTUDIANTE)).dispose();
-
-                    }else{
-
-                        // Manejo de credenciales incorrectas
-                        JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
-                        userEstudiante.setText("");
-                        passEstudiante.setText("");
+                                // Cierre del formulario de inicio de sesión
+                                ((JFrame) SwingUtilities.getWindowAncestor(INGRESARButtonESTUDIANTE)).dispose();
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+                                userEstudiante.setText("");
+                                passEstudiante.setText("");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+                            userEstudiante.setText("");
+                            passEstudiante.setText("");
+                        }
                     }
-                }catch (SQLException E){
-                    // Manejo de excepciones SQL
-                    E.printStackTrace();
-                }
 
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
-        // Configuración del ActionListener para el botón INGRESARButtonPROFESOR
+
+// Configuración del ActionListener para el botón INGRESARButtonPROFESOR
         INGRESARButtonPROFESOR.addActionListener(new ActionListener() {
             /**
              * @param e evento que permite mostrar MODULO LOGIN-PROFESOR
@@ -161,44 +220,51 @@ public class form1 {
                 String passTeacher = passProfesor.getText();
 
                 // Consulta SQL para verificar las credenciales del profesor
-                String query = "SELECT * FROM sesionprofesor WHERE userteacher = ? AND passteacher = ?";
-                try (Connection connection = DriverManager.getConnection(url, user, password)) {
-                    // Preparación de la declaración SQL
-                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+                String query = "SELECT passteacher FROM sesionprofesor WHERE userteacher = ?";
+                try (Connection connection = DriverManager.getConnection(url, user, password);
+                     PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
                     preparedStatement.setString(1, userTeacher);
-                    preparedStatement.setString(2, passTeacher);
+                    try (ResultSet rs = preparedStatement.executeQuery()) {
+                        if (rs.next()) {
+                            String hashedPassword = rs.getString("passteacher");
+                            if (BCrypt.checkpw(passTeacher, hashedPassword)) {
+                                // Establece la información del usuario global
+                                nombreUsuario = userTeacher;
+                                tipoUsuario = "profesor";
 
-                    // Ejecución de la consulta y verificación de credenciales
-                    if (preparedStatement.executeQuery().next()) {
+                                // Creación del módulo del perfil del profesor
+                                JFrame panel = new JFrame("Perfil Profesor");
+                                panel.setContentPane(new PerfilProfesores().perfilProfesor);
+                                panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                panel.pack();
+                                panel.setVisible(true);
 
-                        // Establece la información del usuario global
-                        nombreUsuario = userTeacher;
-                        tipoUsuario = "profesor";
+                                // Cierre del formulario de inicio de sesión
+                                ((JFrame) SwingUtilities.getWindowAncestor(INGRESARButtonPROFESOR)).dispose();
 
-                        // Creación del módulo del perfil del profesor
-                        JFrame panel = new JFrame("Perfil Profesor");
-                        panel.setContentPane(new PerfilProfesores().perfilProfesor);
-                        panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                        panel.pack();
-                        panel.setVisible(true);
-
-                        // Cierre del formulario de inicio de sesión
-                        ((JFrame) SwingUtilities.getWindowAncestor(INGRESARButtonPROFESOR)).dispose();
-
-                    } else {
-                        // Manejo de credenciales incorrectas
-                        JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
-                        userProfesor.setText("");
-                        passProfesor.setText("");
+                            } else {
+                                // Manejo de credenciales incorrectas
+                                JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
+                                userProfesor.setText("");
+                                passProfesor.setText("");
+                            }
+                        } else {
+                            // Manejo de usuario no encontrado
+                            JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+                            userProfesor.setText("");
+                            passProfesor.setText("");
+                        }
                     }
-                } catch (SQLException E) {
+
+                } catch (SQLException ex) {
                     // Manejo de excepciones SQL
-                    E.printStackTrace();
+                    ex.printStackTrace();
                 }
             }
         });
 
-        // Configuración del ActionListener para el botón INGRESARButtonADMINISTRADOR
+// Configuración del ActionListener para el botón INGRESARButtonADMINISTRADOR
         INGRESARButtonADMINISTRADOR.addActionListener(new ActionListener() {
             /**
              * @param e evento que permite mostrar MODULO LOGIN-ADMINISTRADOR
@@ -216,43 +282,62 @@ public class form1 {
                 String passAdmin = passAdministrador.getText();
 
                 // Consulta SQL para verificar las credenciales del administrador
-                String query = "SELECT * FROM sesionadministrador WHERE useradmin = ? AND passadmin = ?";
-                try (Connection connection = DriverManager.getConnection(url, user, password)) {
-                    // Preparación de la declaración SQL
-                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+                String query = "SELECT passadmin FROM sesionadministrador WHERE useradmin = ?";
+                try (Connection connection = DriverManager.getConnection(url, user, password);
+                     PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
                     preparedStatement.setString(1, userAdmin);
-                    preparedStatement.setString(2, passAdmin);
+                    try (ResultSet rs = preparedStatement.executeQuery()) {
+                        if (rs.next()) {
+                            String hashedPassword = rs.getString("passadmin");
+                            if (BCrypt.checkpw(passAdmin, hashedPassword)) {
+                                // Establece la información del usuario global
+                                nombreUsuario = userAdmin;
+                                tipoUsuario = "administrador";
 
-                    // Ejecución de la consulta y verificación de credenciales
-                    if (preparedStatement.executeQuery().next()) {
+                                // Creación del módulo del perfil del administrador
+                                JFrame frame = new JFrame("Perfil Administrador");
+                                frame.setContentPane(new PerfilAdmin().paneladmin);
+                                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                frame.setSize(200, 300);
+                                frame.pack();
+                                frame.setVisible(true);
 
-                        // Establece la información del usuario global
-                        nombreUsuario = userAdmin;
-                        tipoUsuario = "administrador";
+                                // Cierre del formulario de inicio de sesión
+                                ((JFrame) SwingUtilities.getWindowAncestor(INGRESARButtonADMINISTRADOR)).dispose();
 
-                        // Creación del módulo del perfil del administrador
-                        JFrame frame = new JFrame("Perfil Administrador");
-                        frame.setContentPane(new PerfilAdmin().paneladmin);
-                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                        frame.setSize(200, 300);
-                        frame.pack();
-                        frame.setVisible(true);
-
-                        // Cierre del formulario de inicio de sesión
-                        ((JFrame) SwingUtilities.getWindowAncestor(INGRESARButtonADMINISTRADOR)).dispose();
-
-                    } else {
-                        // Manejo de credenciales incorrectas
-                        JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
-                        userAdministrador.setText("");
-                        passAdministrador.setText("");
+                            } else {
+                                // Manejo de credenciales incorrectas
+                                JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
+                                userAdministrador.setText("");
+                                passAdministrador.setText("");
+                            }
+                        } else {
+                            // Manejo de usuario no encontrado
+                            JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+                            userAdministrador.setText("");
+                            passAdministrador.setText("");
+                        }
                     }
-                } catch (SQLException E) {
+
+                } catch (SQLException ex) {
                     // Manejo de excepciones SQL
-                    E.printStackTrace();
+                    ex.printStackTrace();
                 }
             }
         });
 
+
+        registrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("Registro MiAulaEsfot");
+                frame.setContentPane(new registro().panelregistro);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(200, 300);
+                frame.pack();
+                frame.setVisible(true);
+            }
+        });
     }
 }

@@ -17,7 +17,7 @@ public class Main {
 
 
         JFrame frame = new JFrame("GESTION AULAS ESFOT");
-        frame.setContentPane(new ReservarEstudiante().panelReservaEstudiante);
+        frame.setContentPane(new form1().panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         frame.setSize(800, 600);
