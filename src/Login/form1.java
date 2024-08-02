@@ -46,6 +46,7 @@ public class form1 {
 
         // Verificar si el usuario ya existe
         if (usuarioExiste(adminUsername)) {
+
             System.out.println("El usuario administrador fue creado.");
             return; // Salir del método si el usuario ya existe
         }
