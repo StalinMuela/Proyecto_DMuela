@@ -18,6 +18,11 @@ public class ReservarEstudiante {
     private static String nombreUsuario = "";
     private static String tipoUsuario = "";
 
+    private static final String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+    private static final String user = "root";
+    private static final String password = "123456";
+
+
     public ReservarEstudiante() {
         REGRESARButton.addActionListener(new ActionListener() {
             @Override
@@ -27,14 +32,14 @@ public class ReservarEstudiante {
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
+
+                ((JFrame) SwingUtilities.getWindowAncestor(REGRESARButton)).dispose();
+
             }
         });
         RESERVARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
                 String codigoAula = codigodelaula.getText();
 
                 if (codigoAula.isEmpty()) {
@@ -85,9 +90,7 @@ public class ReservarEstudiante {
         CANCELARRESERVAButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
+
                 String codigoAula = codigodelaula.getText(); // Asumiendo que tienes un JTextField llamado cancelarAula
 
                 if (codigoAula.isEmpty()) {
@@ -139,9 +142,7 @@ public class ReservarEstudiante {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Configuración de la conexión a la base de datos
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
+
                 String query = "SELECT * FROM aulasreserva";
 
                 // Crear un modelo de tabla y establecer columnas

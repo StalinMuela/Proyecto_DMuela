@@ -33,61 +33,40 @@ public class form1 {
     private static String nombreUsuario = "";
     private static String tipoUsuario = "";
 
+    private static final String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+    private static final String user = "root";
+    private static final String password = "123456";
+
     private void crearAdminUser() {
-        // Configuración de la conexión a la base de datos
-        String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-        String user = "root";
-        String password = "123456";
+        String adminUsername = "User";
+        String adminPassword = "usuario";
+        String adminHashedPassword = BCrypt.hashpw(adminPassword, BCrypt.gensalt());
 
-        // Datos del usuario admin
-        String adminUsername = "DavidAdmin";
-        String adminPlainPassword = "admin";
-        String adminHashedPassword = BCrypt.hashpw(adminPlainPassword, BCrypt.gensalt());
+        String queryCheck = "SELECT COUNT(*) FROM sesionadministrador WHERE useradmin = ?";
+        String queryInsert = "INSERT INTO sesionadministrador (useradmin, passadmin) VALUES (?, ?)";
 
-        // Verificar si el usuario ya existe
-        if (usuarioExiste(adminUsername)) {
-
-            System.out.println("El usuario administrador fue creado.");
-            return; // Salir del método si el usuario ya existe
-        }
-
-        // Consulta para insertar el usuario admin en la base de datos
-        String query = "INSERT INTO sesionadministrador (useradmin , passadmin) VALUES (?,?)";
         try (Connection conn = DriverManager.getConnection(url, user, password);
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+             PreparedStatement pstmtCheck = conn.prepareStatement(queryCheck);
+             PreparedStatement pstmtInsert = conn.prepareStatement(queryInsert)) {
 
-            // Configuración de los parámetros de la consulta
-            stmt.setString(1, adminUsername);
-            stmt.setString(2, adminHashedPassword);
+            // Verificar si el usuario ya existe
+            pstmtCheck.setString(1, adminUsername);
+            try (ResultSet rs = pstmtCheck.executeQuery()) {
+                if (rs.next() && rs.getInt(1) > 0) {
+                    System.out.println("El usuario administrador ya existe.");
+                    return;
+                }
+            }
 
-            // Ejecución de la consulta
-            stmt.executeUpdate();
+            // Insertar el nuevo usuario
+            pstmtInsert.setString(1, adminUsername);
+            pstmtInsert.setString(2, adminHashedPassword);
+            pstmtInsert.executeUpdate();
             System.out.println("Usuario admin creado exitosamente.");
 
         } catch (SQLException e) {
-            // Manejo de errores
             e.printStackTrace();
         }
-    }
-
-    private boolean usuarioExiste(String username) {
-        String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-        String user = "root";
-        String password = "123456";
-
-        String query = "SELECT COUNT(*) FROM sesionadministrador WHERE useradmin = ?";
-        try (Connection conn = DriverManager.getConnection(url, user, password);
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, username);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getInt(1) > 0;
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     public form1() {
@@ -153,9 +132,6 @@ public class form1 {
             public void actionPerformed(ActionEvent e) {
 
                 // Configuración de la conexión a la base de datos
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
 
                 // Obtención de las credenciales del estudiante desde los campos de texto
                 String userStudent = userEstudiante.getText();
@@ -210,11 +186,6 @@ public class form1 {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                // Configuración de la conexión a la base de datos
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
 
                 // Obtención de las credenciales del profesor desde los campos de texto
                 String userTeacher = userProfesor.getText();
@@ -272,11 +243,6 @@ public class form1 {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                // Configuración de la conexión a la base de datos
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
 
                 // Obtención de las credenciales del administrador desde los campos de texto
                 String userAdmin = userAdministrador.getText();
@@ -338,6 +304,9 @@ public class form1 {
                 frame.setSize(200, 300);
                 frame.pack();
                 frame.setVisible(true);
+
+                ((JFrame) SwingUtilities.getWindowAncestor(registrar)).dispose();
+
             }
         });
     }

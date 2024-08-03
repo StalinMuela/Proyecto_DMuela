@@ -18,6 +18,11 @@ public class BorrarAdmin {
     private JButton BORRARButtonAULA;
     private JButton REGRESARButton;
 
+    private static final String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+    private static final String user = "root";
+    private static final String password = "123456";
+
+
     public BorrarAdmin() {
         comboBox1.addActionListener(new ActionListener() {
             @Override
@@ -41,9 +46,7 @@ public class BorrarAdmin {
         BORRARButtonLAB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url  = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
+
                 Connection connection = null;
                 PreparedStatement consulta = null;
 
@@ -82,9 +85,7 @@ public class BorrarAdmin {
         BORRARButtonAULA.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url  = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
+
                 Connection connection = null;
                 PreparedStatement consulta = null;
 

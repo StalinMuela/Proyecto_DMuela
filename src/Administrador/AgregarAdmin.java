@@ -25,6 +25,11 @@ public class AgregarAdmin {
     private JTextField codigoLab;
     private JTextField nombreLab;
 
+    private static final String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+    private static final String user = "root";
+    private static final String password = "123456";
+
+
     public AgregarAdmin() {
 
         comboBox1.addActionListener(new ActionListener() {
@@ -51,9 +56,6 @@ public class AgregarAdmin {
         agregarAula.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url  = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
 
                 String sql = "INSERT INTO aulasreserva (codigo, nombreaula, capacidad, dispoaula) VALUES (?, ?, ?, ?)";
 
@@ -100,9 +102,6 @@ public class AgregarAdmin {
         agregarLabButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url  = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
 
                 String sql = "INSERT INTO labreserva (codigo, nombrelab, capacidad, dispolab) VALUES (?, ?, ?, ?)";
 

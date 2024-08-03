@@ -18,6 +18,11 @@ public class MostrarAdmin {
     private JTable table2;
     private JButton REGRESARButton;
 
+    private static final String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+    private static final String user = "root";
+    private static final String password = "123456";
+
+
     public MostrarAdmin() {
 
         comboBox1.addActionListener(new ActionListener() {
@@ -43,10 +48,7 @@ public class MostrarAdmin {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Configuración de la conexión a la base de datos
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
+
                 String query = "SELECT * FROM aulasreserva";
 
                 // Crear un modelo de tabla y establecer columnas
@@ -86,9 +88,7 @@ public class MostrarAdmin {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
+
                 String query = "SELECT * FROM labreserva";
 
                 // Crear un modelo de tabla y establecer columnas

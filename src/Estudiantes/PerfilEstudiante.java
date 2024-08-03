@@ -23,6 +23,9 @@ public class PerfilEstudiante {
                 frame.setSize(800, 600);
                 frame.pack();
                 frame.setVisible(true);
+
+                ((JFrame) SwingUtilities.getWindowAncestor(CERRARSESIONButton)).dispose();
+
             }
         });
         RESERVARAULAButton.addActionListener(new ActionListener() {
@@ -34,6 +37,10 @@ public class PerfilEstudiante {
                 frame.setSize(800, 600);
                 frame.pack();
                 frame.setVisible(true);
+
+                ((JFrame) SwingUtilities.getWindowAncestor(RESERVARAULAButton)).dispose();
+
+
             }
         });
     }
