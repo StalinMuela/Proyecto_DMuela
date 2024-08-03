@@ -6,6 +6,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * La clase {@code registro} es una clase general de MiAulaESFOT.
+ * Su función principal reservar aulas
+ */
 public class registro {
     public JPanel panelregistro;
     private JComboBox comboBox1;
@@ -21,22 +25,30 @@ public class registro {
     private JTextField usuarioProfe;
     private JButton REGRESARINICIOSESIONButton;
 
+    //Crea unas constasten que permite la conexion con BASE DE DATOS
     private static final String url = "jdbc:mysql://localhost:3306/miaulaesfot";
     private static final String user = "root";
     private static final String password = "123456";
 
+    /**
+     * Constructor de la clase {@code registro}
+     * Configura los botones y sus respectivos eventos
+     */
     public registro() {
 
+        // ActionListener para el botón comboBox1, para mostrar registro Estuidante o Profesor
         comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String opcion = (String) comboBox1.getSelectedItem();
                 switch (opcion) {
                     case "Estudiante":
+                        //Permite mostrar el de registro de estudiantes mientras oculta el de registro profesores
                         registerStudent.setVisible(true);
                         registerTeacher.setVisible(false);
                         break;
                     case "Profesor":
+                        //Permite ocultar el de registro de estudiantes mientras mustra el de registro profesores
                         registerStudent.setVisible(false);
                         registerTeacher.setVisible(true);
 
@@ -44,6 +56,7 @@ public class registro {
             }
         });
 
+        // ActionListener para el botón registrarEstu, para registrar Estuidante
         registrarEstu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,6 +107,7 @@ public class registro {
             }
         });
 
+        // ActionListener para el botón registrarProfe, para registrar Profesor
         registrarProfe.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -144,9 +158,13 @@ public class registro {
 
             }
         });
+
+        // ActionListener para el botón REGRESARINICIOSESIONButton, permite regresar AL INICIO DE SESION
         REGRESARINICIOSESIONButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                //Crea un panel que permite regresa al INICIO SE SESION
                 JFrame frame = new JFrame("Inicio de Sesion MiAulaESFOT");
                 frame.setContentPane(new form1().panel1);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -154,6 +172,7 @@ public class registro {
                 frame.pack();
                 frame.setVisible(true);
 
+                //Permite cerrar el panel
                 ((JFrame) SwingUtilities.getWindowAncestor(REGRESARINICIOSESIONButton)).dispose();
 
             }

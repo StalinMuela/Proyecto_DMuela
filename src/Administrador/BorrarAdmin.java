@@ -6,7 +6,10 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+/**
+ * La clase {@code BorrarAdmin} una clase de administrador de ESFOT.
+ * Su función principal es borrar las aulas y laboratorios creados
+ */
 public class BorrarAdmin {
     public JPanel AdminBorrar;
     private JComboBox comboBox1;
@@ -18,10 +21,15 @@ public class BorrarAdmin {
     private JButton BORRARButtonAULA;
     private JButton REGRESARButton;
 
+    //Crea unas constasten que permite la conexion con BASE DE DATOS
     private static final String url = "jdbc:mysql://localhost:3306/miaulaesfot";
     private static final String user = "root";
     private static final String password = "123456";
 
+    /**
+     * Constructor de la clase {@code BorrarAdmin}
+     * Configura los botones y sus respectivos eventos
+     */
 
     public BorrarAdmin() {
         comboBox1.addActionListener(new ActionListener() {
@@ -30,12 +38,12 @@ public class BorrarAdmin {
                 String eleccion = (String) comboBox1.getSelectedItem();
                 switch (eleccion) {
                     case "Aula":
-                        BorrarLab.setVisible(false);
-                        BorrarAula.setVisible(true);
+                        BorrarLab.setVisible(false); // Oculta el panel de Laboratorio
+                        BorrarAula.setVisible(true); // Muestra el panel de Aula
                         break;
                     case "Laboratorio":
-                        BorrarLab.setVisible(true);
-                        BorrarAula.setVisible(false);
+                        BorrarLab.setVisible(true); // Muestra el panel de Aula
+                        BorrarAula.setVisible(false); // Oculta el panel de Laboratorio
                         break;
                     default:
                         System.out.printf("ERROR");
@@ -43,6 +51,8 @@ public class BorrarAdmin {
                 }
             }
         });
+
+        // ActionListener para el botón BORRARButtonLAB, para borrar un Laboratorio
         BORRARButtonLAB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,10 +61,17 @@ public class BorrarAdmin {
                 PreparedStatement consulta = null;
 
                 try{
+                    // Establece conexión con la base de datos
                     connection=DriverManager.getConnection(url,user,password);
+
+                    // Consulta SQL para borrar laboratorio
                     String borrarlab = "DELETE FROM labreserva WHERE codigo  = ?";
                     consulta = connection.prepareStatement(borrarlab);
+
+                    // Asigna el código del laboratorio a la consulta
                     consulta.setString(1, labelab.getText());
+
+                    // Verifica si el campo de texto está vacío
                     if (labelab.getText().equals("")) {
                         JOptionPane.showMessageDialog(null,"INGRESA VALORES");
                     }
@@ -71,10 +88,10 @@ public class BorrarAdmin {
                 }finally {
                     try {
                         if (consulta != null){
-                            consulta.close();
+                            consulta.close(); // Cierra la consulta
                         }
                         if(connection!= null){
-                            connection.close();
+                            connection.close();  // Cierra la conexión
                         }
                     }catch (SQLException A){
                         A.printStackTrace();
@@ -82,6 +99,8 @@ public class BorrarAdmin {
                 }
             }
         });
+
+        // ActionListener para el botón BORRARButtonAULA, para borrar un Aula
         BORRARButtonAULA.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -90,10 +109,16 @@ public class BorrarAdmin {
                 PreparedStatement consulta = null;
 
                 try{
+                    // Establece conexión con la base de datos
                     connection=DriverManager.getConnection(url,user,password);
+
+                    // Consulta SQL para borrar aula
                     String borrarlab = "DELETE FROM aulasreserva WHERE codigo  = ?";
                     consulta = connection.prepareStatement(borrarlab);
+                    // Asigna el código del aula a la consulta
                     consulta.setString(1, labelaula.getText());
+
+                    // Verifica si el campo de texto está vacío
                     if (labelaula.getText().equals("")) {
                         JOptionPane.showMessageDialog(null,"INGRESA VALORES");
                     }
@@ -110,10 +135,10 @@ public class BorrarAdmin {
                 }finally {
                     try {
                         if (consulta != null){
-                            consulta.close();
+                            consulta.close(); // Cierra la consulta
                         }
                         if(connection!= null){
-                            connection.close();
+                            connection.close(); // Cierra la conexión
                         }
                     }catch (SQLException A){
                         A.printStackTrace();
@@ -121,15 +146,21 @@ public class BorrarAdmin {
                 }
             }
         });
+
+        // ActionListener para el botón REGRESARButton, para regresar a la pantalla anterior
         REGRESARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                // Muestra el panel del perfil de administrador
                 JFrame frame = new JFrame();
                 frame.setContentPane(new PerfilAdmin().paneladmin);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(200,300);
                 frame.pack();
                 frame.setVisible(true);
+
+                // Cierra el JFrame actual
                 ((JFrame) SwingUtilities.getWindowAncestor(REGRESARButton)).dispose();
 
             }

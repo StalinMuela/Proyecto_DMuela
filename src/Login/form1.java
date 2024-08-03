@@ -33,10 +33,15 @@ public class form1 {
     private static String nombreUsuario = "";
     private static String tipoUsuario = "";
 
+    //Crea unas constasten que permite la conexion con BASE DE DATOS
     private static final String url = "jdbc:mysql://localhost:3306/miaulaesfot";
     private static final String user = "root";
     private static final String password = "123456";
 
+    /**
+     * Crear una clase privada de  {@code crearAdminUser}
+     * Permite crear un cuenta de ADMINISTRADOR
+     */
     private void crearAdminUser() {
         String adminUsername = "User";
         String adminPassword = "usuario";
@@ -69,6 +74,10 @@ public class form1 {
         }
     }
 
+    /**
+     * Constructor de la clase {@code form1}
+     * Configura los botones y sus respectivos eventos
+     */
     public form1() {
         crearAdminUser();
         // Configura el ActionListener para el ComboBox que cambia entre paneles de usuario
@@ -123,11 +132,9 @@ public class form1 {
             }
         });
 
+
+        // ActionListener para el botón INGRESARButtonESTUDIANTE, permite mostrar el módulo de perfil del estudiante.
         INGRESARButtonESTUDIANTE.addActionListener(new ActionListener() {
-            /**
-             * Maneja el evento de clic en el botón de inicio de sesión del estudiante.
-             * @param e Evento que permite mostrar el módulo de perfil del estudiante.
-             */
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -178,15 +185,10 @@ public class form1 {
             }
         });
 
-
-// Configuración del ActionListener para el botón INGRESARButtonPROFESOR
+        // ActionListener para el botón INGRESARButtonESTUDIANTE, permite mostrar MODULO LOGIN-PROFESOR
         INGRESARButtonPROFESOR.addActionListener(new ActionListener() {
-            /**
-             * @param e evento que permite mostrar MODULO LOGIN-PROFESOR
-             */
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 // Obtención de las credenciales del profesor desde los campos de texto
                 String userTeacher = userProfesor.getText();
                 String passTeacher = passProfesor.getText();
@@ -214,10 +216,9 @@ public class form1 {
 
                                 // Cierre del formulario de inicio de sesión
                                 ((JFrame) SwingUtilities.getWindowAncestor(INGRESARButtonPROFESOR)).dispose();
-
                             } else {
                                 // Manejo de credenciales incorrectas
-                                JOptionPane.showMessageDialog(null, "Incorrecto Usuario o Contraseña");
+                                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
                                 userProfesor.setText("");
                                 passProfesor.setText("");
                             }
@@ -228,7 +229,6 @@ public class form1 {
                             passProfesor.setText("");
                         }
                     }
-
                 } catch (SQLException ex) {
                     // Manejo de excepciones SQL
                     ex.printStackTrace();
@@ -236,11 +236,8 @@ public class form1 {
             }
         });
 
-// Configuración del ActionListener para el botón INGRESARButtonADMINISTRADOR
+        // ActionListener para el botón INGRESARButtonADMINISTRADOR, permite mostrar MODULO LOGIN-ADMINISTRADOR
         INGRESARButtonADMINISTRADOR.addActionListener(new ActionListener() {
-            /**
-             * @param e evento que permite mostrar MODULO LOGIN-ADMINISTRADOR
-             */
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -294,7 +291,7 @@ public class form1 {
             }
         });
 
-
+        // ActionListener para el botón registrar, permite ingresar para CREAR UN REGISTRO
         registrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

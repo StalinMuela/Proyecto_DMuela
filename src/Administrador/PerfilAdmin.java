@@ -25,6 +25,7 @@ public class PerfilAdmin {
          * @param botonos Permite crear ActionListener de los diferentes acciones como ADMINISTRADOR
          */
 
+        // ActionListener para el botón AGREGARButton, para ir al panel de Agregar
         AGREGARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,6 +41,8 @@ public class PerfilAdmin {
 
             }
         });
+
+        // ActionListener para el botón CERRARSESIONButton, para regresar al INICIO DE SESION
         CERRARSESIONButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,6 +58,8 @@ public class PerfilAdmin {
 
             }
         });
+
+        // ActionListener para el botón BORRARButton, para ir al panel de borrar aulas/laboratorios
         BORRARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,6 +76,8 @@ public class PerfilAdmin {
 
             }
         });
+
+        // ActionListener para el botón VISUALIZARButton, para ir al panel de visualizar aulas/laboratorios
         VISUALIZARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

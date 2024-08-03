@@ -15,6 +15,7 @@ import Profesores.ReservarProfesores;
 public class Main {
     public static void main(String[] args) {
 
+        //Permite crear un panel conocido como INICIO DE SESION
 
         JFrame frame = new JFrame("GESTION AULAS ESFOT");
         frame.setContentPane(new form1().panel1);

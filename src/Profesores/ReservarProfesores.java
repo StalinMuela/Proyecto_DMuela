@@ -6,7 +6,10 @@ import javax.swing.table.JTableHeader;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
-
+/**
+ * La clase {@code ReservarProfesores} es una clase de profesores de ESFOT.
+ * Su función principal es reservar aulas y laboratorios
+ */
 public class ReservarProfesores {
     public JPanel reservarPanel;
     private JButton buttonReservar;
@@ -27,6 +30,16 @@ public class ReservarProfesores {
     private static String nombreUsuario = "";
     private static String tipoUsuario = "";
 
+    //Crea unas constasten que permite la conexion con BASE DE DATOS
+    private static final String url = "jdbc:mysql://localhost:3306/miaulaesfot";
+    private static final String user = "root";
+    private static final String password = "123456";
+
+
+    /**
+     * Constructor de la clase {@code ReservarProfesores}
+     * Configura los botones y sus respectivos eventos
+     */
 
     public ReservarProfesores() {
 
@@ -37,23 +50,25 @@ public class ReservarProfesores {
                 String eleccion = (String) comboBox1.getSelectedItem();
                 switch (eleccion) {
                     case "Laboratorio":
+
+                        //Permite mostrar panel de reservarLab mientras que el de reservarAula oculta
                         reservarAula.setVisible(false);
                         reservarLab.setVisible(true);
                         break;
                     case "Aula":
+
+                        //Permite ocultar panel de reservarLab mientras que el de reservarAula muestra
                         reservarAula.setVisible(true);
                         reservarLab.setVisible(false);
                 }
             }
         });
 
-        //RESERVAR AULA
+        // ActionListener para el botón buttonReservar, para reservar un aula
         buttonReservar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
+
                 String codigoAula = reservaraula.getText();
 
                 if (codigoAula.isEmpty()) {
@@ -100,15 +115,12 @@ public class ReservarProfesores {
             }
         });
 
-        //CANCELAR AULA RESERVA
-
+        // ActionListener para el botón buttonCancelar, para cancelar un aula
         buttonCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
-                String codigoAula = reservaraula.getText(); // Asumiendo que tienes un JTextField llamado cancelarAula
+
+                String codigoAula = reservaraula.getText(); // Asumiendo que tienes un JTextField llamado reservaraula
 
                 if (codigoAula.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Ingrese un valor");
@@ -125,10 +137,8 @@ public class ReservarProfesores {
                                 int dispoaula = rs.getInt("dispoaula");
                                 String userReserva = rs.getString("user_reserva");
 
-                                // Verificar si el campo user_reserva es null
-                                if (userReserva == null) {
-                                    JOptionPane.showMessageDialog(null, "El aula esta RESERVADA por otra persona");
-                                } else if (dispoaula == 1 && userReserva.equals(tipoUsuario + "_" + nombreUsuario)) {
+                                // Verificar si el aula está reservada por el usuario actual
+                                if (dispoaula == 1 && userReserva != null && userReserva.equals(tipoUsuario + "_" + nombreUsuario)) {
                                     // Actualizar la disponibilidad del aula y limpiar el campo user_reserva
                                     String updateQuery = "UPDATE aulasreserva SET dispoaula = 0, user_reserva = NULL WHERE codigo = ?";
                                     try (PreparedStatement updateStmt = connection.prepareStatement(updateQuery)) {
@@ -156,15 +166,12 @@ public class ReservarProfesores {
             }
         });
 
-        //VISUALIZAR AULASS
-
+        // ActionListener para el botón visualizarButton, para visualizar las aulas
         visualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Configuración de la conexión a la base de datos
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
+
                 String query = "SELECT * FROM aulasreserva";
 
                 // Crear un modelo de tabla y establecer columnas
@@ -202,13 +209,11 @@ public class ReservarProfesores {
             }
         });
 
-        //VISUALIZAR LABORATORIOS
+        // ActionListener para el botón visualizarButton1, para visualizar los laboratorios
         visualizarButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
+
                 String query = "SELECT * FROM labreserva";
 
                 // Crear un modelo de tabla y establecer columnas
@@ -247,9 +252,7 @@ public class ReservarProfesores {
         });
 
 
-
-
-        //REGRESAR
+        // ActionListener para el botón Regresaar, para regresar Perfil Profesor
         Regresaar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -263,12 +266,10 @@ public class ReservarProfesores {
             }
         });
 
+        // ActionListener para el botón RESERVARButtonLAB, para reservar laboratorios
         RESERVARButtonLAB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
                 String codigoLaboratorio = codigoLAB.getText();
 
                 if (codigoLaboratorio.isEmpty()) {
@@ -284,7 +285,6 @@ public class ReservarProfesores {
                         try (ResultSet rs = stmt.executeQuery()) {
                             if (rs.next()) {
                                 int dispolab = rs.getInt("dispolab");
-                                String userReserva = rs.getString("user_reserva");
 
                                 // Solo proceder si el laboratorio está disponible (0 indica no reservado)
                                 if (dispolab == 0) {
@@ -316,12 +316,10 @@ public class ReservarProfesores {
             }
         });
 
+        // ActionListener para el botón CANCELARRESERVAButtonLAB, para cancelar reserva laboratorios
         CANCELARRESERVAButtonLAB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = "jdbc:mysql://localhost:3306/miaulaesfot";
-                String user = "root";
-                String password = "123456";
                 String codigoLaboratorio = codigoLAB.getText();
 
                 if (codigoLaboratorio.isEmpty()) {
@@ -339,9 +337,7 @@ public class ReservarProfesores {
                                 int dispolab = rs.getInt("dispolab");
                                 String userReserva = rs.getString("user_reserva");
 
-                                if (userReserva == null) {
-                                    JOptionPane.showMessageDialog(null, "El laboratorio esta RESERVADA por otra persona");
-                                } else if (dispolab == 1 && userReserva.equals(tipoUsuario + "_" + nombreUsuario)) {
+                                if (dispolab == 1 && userReserva != null && userReserva.equals(tipoUsuario + "_" + nombreUsuario)) {
                                     // Actualizar la disponibilidad del laboratorio y limpiar el campo user_reserva
                                     String updateQuery = "UPDATE labreserva SET dispolab = 0, user_reserva = NULL WHERE codigo = ?";
                                     try (PreparedStatement updateStmt = connection.prepareStatement(updateQuery)) {
@@ -354,8 +350,10 @@ public class ReservarProfesores {
                                             JOptionPane.showMessageDialog(null, "No se pudo cancelar la reserva");
                                         }
                                     }
+                                } else if (userReserva == null) {
+                                    JOptionPane.showMessageDialog(null, "El laboratorio no está reservado");
                                 } else {
-                                    JOptionPane.showMessageDialog(null, "El laboratorio no está reservado por usted o no está reservado");
+                                    JOptionPane.showMessageDialog(null, "El laboratorio está reservado por otra persona");
                                 }
                             } else {
                                 JOptionPane.showMessageDialog(null, "Código de laboratorio no encontrado");
@@ -368,8 +366,5 @@ public class ReservarProfesores {
                 }
             }
         });
-
-
-
     }
 }

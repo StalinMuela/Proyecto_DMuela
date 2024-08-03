@@ -7,6 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
+/**
+ * La clase {@code AgregarAdmin} es una clase de administrador de ESFOT.
+ * Su función principal es agregar aulas y laboratorios
+ */
 public class AgregarAdmin {
     public JPanel agregarAdmin;
     private JComboBox comboBox1;
@@ -25,23 +29,32 @@ public class AgregarAdmin {
     private JTextField codigoLab;
     private JTextField nombreLab;
 
+    //Crea unas constasten que permite la conexion con BASE DE DATOS
     private static final String url = "jdbc:mysql://localhost:3306/miaulaesfot";
     private static final String user = "root";
     private static final String password = "123456";
 
+    /**
+     * Constructor de la clase {@code AgregarAdmin}
+     * Configura los botones y sus respectivos eventos
+     */
 
     public AgregarAdmin() {
 
+        // ActionListener para el botón comboBox1, para cambiar los paneles
         comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String eleccion = (String) comboBox1.getSelectedItem();
                 switch (eleccion) {
                     case "Aula":
+
+                        //Permite mostrar el de aula mientras que el de laboratorio oculta
                         AgregarAula.setVisible(true);
                         AgregarLab.setVisible(false);
                         break;
                     case "Laboratorio":
+                        //Permite mostrar el de aula mientras que el de laboratorio oculta
                         AgregarAula.setVisible(false);
                         AgregarLab.setVisible(true);
                         break;
@@ -52,7 +65,7 @@ public class AgregarAdmin {
             }
         });
 
-
+        // ActionListener para el botón agregarAula, para agregar un aula
         agregarAula.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -99,6 +112,7 @@ public class AgregarAdmin {
             }
         });
 
+        // ActionListener para el botón agregarLabButton, para agregar un laboratorio
         agregarLabButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -146,15 +160,21 @@ public class AgregarAdmin {
         });
 
 
+        // ActionListener para el botón REGRESARButton, para regresar al Perfil Administrador
+
         REGRESARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                // Muestra el panel del perfil de administrador
                 JFrame frame = new JFrame();
                 frame.setContentPane(new PerfilAdmin().paneladmin);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(200,300);
                 frame.pack();
                 frame.setVisible(true);
+
+                // Cierra el JFrame actual
                 ((JFrame) SwingUtilities.getWindowAncestor(REGRESARButton)).dispose();
 
             }
