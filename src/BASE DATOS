@@ -1,0 +1,38 @@
+CREATE DATABASE miaulaesfot;
+USE miaulaesfot;
+
+/* TABLA DE SESION DE ESTUDIANTES */
+CREATE TABLE sesionestudiante(
+    userstudent VARCHAR(25) PRIMARY KEY,
+    passstudente VARCHAR(60) NOT NULL
+);
+
+/* TABLA DE SESION DE PROFESORES */
+CREATE TABLE sesionprofesor(
+    userteacher VARCHAR(25) PRIMARY KEY,
+    passteacher VARCHAR(60) NOT NULL
+);
+
+/* TABLA DE SESION DE ADMINISTRADOR */
+CREATE TABLE sesionadministrador(
+    useradmin VARCHAR(25) PRIMARY KEY,
+    passadmin VARCHAR(60) NOT NULL
+);
+
+/* TABLA DE RESERVA DE AULAS */
+CREATE TABLE aulasreserva(
+    codigo VARCHAR(24) PRIMARY KEY,
+    nombreaula VARCHAR(25) NOT NULL,
+    capacidad INT NOT NULL,
+    dispoaula BOOLEAN NOT NULL,
+    user_reserva VARCHAR(50) DEFAULT NULL
+);
+
+/* TABLA DE RESERVA DE LABORATORIOS */
+CREATE TABLE labreserva(
+    codigo INT PRIMARY KEY,
+    nombrelab VARCHAR(25) NOT NULL,
+    capacidad INT NOT NULL,
+	dispolab BOOLEAN NOT NULL,
+    user_reserva VARCHAR(50) DEFAULT NULL
+);
