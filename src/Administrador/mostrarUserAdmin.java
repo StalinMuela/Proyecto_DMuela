@@ -32,6 +32,10 @@ public class mostrarUserAdmin {
     private static final String password = "123456";
 
 
+    /**
+     * Constructor de la clase {@code mostrarUserAdmin}
+     * Configura los botones y sus respectivos eventos
+     */
     public mostrarUserAdmin() {
 
         // ActionListener para el botón comboBox1, para mostrar usuarios
@@ -41,16 +45,20 @@ public class mostrarUserAdmin {
                 String eleccion = (String) comboBox1.getSelectedItem();
                 switch (eleccion) {
                     case "Estudiante":
+                        //Permite mostrar tabla de estudiantes mientras oculta la tabla de profesores
                         mostrarEstudiante.setVisible(true);
                         mostrarProfesor.setVisible(false);
                         break;
                     case "Profesor":
+                        //Permite ocultar tabla de estudiantes mientras muestra la tabla de profesores
                         mostrarEstudiante.setVisible(false);
                         mostrarProfesor.setVisible(true);
                         break;
                 }
             }
         });
+
+        // ActionListener para el botón visualizarEstudianteButton, para visualizar estudiantes
         visualizarEstudianteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -80,6 +88,8 @@ public class mostrarUserAdmin {
                 }
             }
         });
+
+        // ActionListener para el botón regresarBUTTON, para regresar al ADMINISTRADOR
         regresarBUTTON.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -95,6 +105,8 @@ public class mostrarUserAdmin {
 
             }
         });
+
+        // ActionListener para el botón visualizarProfesorButton1, para visualizar profesores
         visualizarProfesorButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

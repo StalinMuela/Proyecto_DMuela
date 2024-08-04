@@ -32,7 +32,10 @@ public class borrarUserAdmin {
     private static final String user = "root";
     private static final String password = "123456";
 
-
+    /**
+     * Constructor de la clase {@code borrarUserAdmin}
+     * Configura los botones y sus respectivos eventos
+     */
     public borrarUserAdmin() {
         // ActionListener para el botón comboBox1, para mostrar los paneles estudiante/profesor para BORRAR
         comboBox1.addActionListener(new ActionListener() {
@@ -41,12 +44,15 @@ public class borrarUserAdmin {
                 String option = (String) comboBox1.getSelectedItem();
                 switch (option) {
                     case "Estudiante":
+                        //Permite mostrar el de borrar de estudiantes mientras oculta el de borrar profesores
                         borrarEstudiante.setVisible(true);
                         borrarProfesor.setVisible(false);
                         break;
                     case "Profesor":
+                        //Permite ocultar el de borrar de estudiantes mientras muestra el de borrar profesores
                         borrarEstudiante.setVisible(false);
                         borrarProfesor.setVisible(true);
+                        break;
 
                 }
             }
