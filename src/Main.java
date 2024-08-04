@@ -10,11 +10,19 @@ import Profesores.ReservarProfesores;
 /**
  * La clase {@code Main} es la clase principal de Mi aula ESFOT.
  * Su función principal es mostrar el INCIO DE SESIÓN.
+ *
+ * @author DAVID MUELA
+ * @version VERSION COMPLETA DEL PROYECTO MI AULA ESFOT
  */
+
+/**
+ * El paquete {@code Administrador} es el encargado de contener
+ * los perfiles de Administrador
+ */
+
 
 public class Main {
     public static void main(String[] args) {
-
         //Permite crear un panel conocido como INICIO DE SESION
 
         JFrame frame = new JFrame("GESTION AULAS ESFOT");
