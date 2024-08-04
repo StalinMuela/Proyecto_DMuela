@@ -60,4 +60,19 @@ B) CONFIGURACIÓN
 
 C) EJECUCIÓN
 
+1. USO
+   
+         1.1. Login
+            Los usuarios pueden acceder al sistema con diferentes roles: 
+            1.1.1. Administrador: Gestiona usuarios, aulas y laboratorios.
+            1.1.2. Profesor: Puede reservar aulas o laboratorios.
+            1.1.3. Estudiante: Puede reservar aulas.
+         2. Funcionalidades
+            2.1 Administrador:
+               2.1.1. Gestionar usuarios (crear, editar, eliminar).
+               2.1.2. Gestionar aulas y laboratorios (crear, editar, eliminar).
+            2.2. Profesor:
+               2.2.1. Reservar aulas o laboratorios.
+            2.3. Estudiantes:
+               2.3.1. Reservar aulas.
 
