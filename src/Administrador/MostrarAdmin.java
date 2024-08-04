@@ -12,6 +12,9 @@ import java.sql.*;
  */
 
 public class MostrarAdmin {
+    /**
+     * Panel para mostrar aulas o laboratorios en el perfil administrador
+     */
     public JPanel mostrarAdmin;
     private JTable table1;
     private JButton mostrarAULAS;

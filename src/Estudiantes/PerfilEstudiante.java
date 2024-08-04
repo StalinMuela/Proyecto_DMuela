@@ -11,6 +11,9 @@ import java.sql.*;
  * y proporciona funcionalidades para reservar solo aulas.
  */
 public class PerfilEstudiante {
+    /**
+     * Panel para mostrar el perfil de Estudiante
+     */
     public JPanel panelEstudiantes;
     private JButton CERRARSESIONButton;
     private JButton RESERVARAULAButton;

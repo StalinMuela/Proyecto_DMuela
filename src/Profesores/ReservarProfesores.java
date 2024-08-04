@@ -11,6 +11,9 @@ import java.sql.*;
  * Su función principal es reservar aulas y laboratorios
  */
 public class ReservarProfesores {
+    /**
+     * Panel para reservar aulas o laboratorios en el perfil de Profesores
+     */
     public JPanel reservarPanel;
     private JButton buttonReservar;
     private JTextField reservaraula;

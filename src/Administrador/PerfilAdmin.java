@@ -9,6 +9,9 @@ import java.text.Normalizer;
  * y proporciona funcionalidades para agregar, visualizar, borrar y cerrar sesión.
  */
 public class PerfilAdmin {
+    /**
+     * Panel para mostrar interfaz del perfil administrador
+     */
     public JPanel paneladmin;
     private JButton CERRARSESIONButton;
     private JButton AGREGARButton;

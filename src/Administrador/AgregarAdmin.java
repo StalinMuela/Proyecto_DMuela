@@ -13,6 +13,9 @@ import java.sql.*;
  * Su función principal es agregar aulas y laboratorios
  */
 public class AgregarAdmin {
+    /**
+     * Panel para agregar aulas o laboratorios en el perfil administrador
+     */
     public JPanel agregarAdmin;
     private JComboBox comboBox1;
     private JPanel AgregarAula;

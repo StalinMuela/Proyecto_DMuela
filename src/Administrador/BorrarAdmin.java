@@ -11,6 +11,9 @@ import java.sql.SQLException;
  * Su función principal es borrar las aulas y laboratorios creados
  */
 public class BorrarAdmin {
+    /**
+     * Panel para borrar aulas o laboratorios en el perfil administrador
+     */
     public JPanel AdminBorrar;
     private JComboBox comboBox1;
     private JPanel BorrarLab;

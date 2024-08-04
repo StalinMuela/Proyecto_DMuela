@@ -15,6 +15,9 @@ import java.sql.*;
  * ingresar como estudiante, profesor o administrador.
  */
 public class form1 {
+    /**
+     * Panel para el incio de sesion de Mi Aula Esfot para acceder a los perfiles
+     */
     public JPanel panel1;
     private JComboBox comboBox1;
     private JPanel panelEstudiante;

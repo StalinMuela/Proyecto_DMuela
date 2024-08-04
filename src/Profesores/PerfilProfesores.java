@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
  * y proporciona funcionalidades mostrar Profesores
  */
 public class PerfilProfesores {
+    /**
+     * Panel para mostrar el perfil de Profesores
+     */
     public JPanel perfilProfesor;
     private JButton Visualizar;
     private JButton RESERVARButton;

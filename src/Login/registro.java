@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
  * Su función principal reservar aulas
  */
 public class registro {
+    /**
+     * Panel para mostrar el registro de personal de mi Aula Esfot
+     */
     public JPanel panelregistro;
     private JComboBox comboBox1;
     private JPanel registerStudent;

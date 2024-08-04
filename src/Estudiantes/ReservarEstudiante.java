@@ -13,6 +13,9 @@ import java.sql.*;
  */
 
 public class ReservarEstudiante {
+    /**
+     * Panel para reservar aulas en el perfil de Estudiante
+     */
     public JPanel panelReservaEstudiante;
     private JButton REGRESARButton;
     private JTextField codigodelaula;
