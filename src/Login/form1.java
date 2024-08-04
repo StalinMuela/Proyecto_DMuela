@@ -32,7 +32,6 @@ public class form1 {
     private JButton INGRESARButtonPROFESOR;
     private JPanel panelProfesor;
     private JTextField userProfesor;
-    private JButton registrar;
     private static String nombreUsuario = "";
     private static String tipoUsuario = "";
 
@@ -294,20 +293,5 @@ public class form1 {
             }
         });
 
-        // ActionListener para el botón registrar, permite ingresar para CREAR UN REGISTRO
-        registrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("Registro MiAulaEsfot");
-                frame.setContentPane(new registro().panelregistro);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(200, 300);
-                frame.pack();
-                frame.setVisible(true);
-
-                ((JFrame) SwingUtilities.getWindowAncestor(registrar)).dispose();
-
-            }
-        });
     }
 }

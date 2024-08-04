@@ -3,7 +3,7 @@ import javax.swing.*;
 import Login.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.Normalizer;
+
 /**
  * La clase {@code PerfilAdmin} representa el perfil del administrador
  * y proporciona funcionalidades para agregar, visualizar, borrar y cerrar sesión.
@@ -17,6 +17,9 @@ public class PerfilAdmin {
     private JButton AGREGARButton;
     private JButton VISUALIZARButton;
     private JButton BORRARButton;
+    private JButton VISUALIZARButton1USER;
+    private JButton BORRARUSERButton;
+    private JButton AGREGARUSUARIOSButton;
 
     /**
      * Constructor de la clase {@code PerfilAdmin}
@@ -97,6 +100,59 @@ public class PerfilAdmin {
                 ((JFrame) SwingUtilities.getWindowAncestor(VISUALIZARButton)).dispose();
 
 
+            }
+        });
+
+        // ActionListener para el botón AGREGARUSUARIOSButton, para ir al panel de agregar PROFESORES O ESTUDIANTES
+        AGREGARUSUARIOSButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear una nueva ventana para el módulo de registrr
+                JFrame frame = new JFrame("MostrarAdmin");
+                frame.setContentPane(new registroUserAdmin() .panelregistro);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setSize(800, 800);
+                frame.setVisible(true);
+
+                // Cierra la ventana actual del perfil de administrador
+                ((JFrame) SwingUtilities.getWindowAncestor(AGREGARUSUARIOSButton)).dispose();
+            }
+        });
+
+        // ActionListener para el botón BORRARUSERButton, para ir al panel de BORRAR PROFESORES O ESTUDIANTES
+        BORRARUSERButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                // Crear una nueva ventana para el módulo de registrr
+                JFrame frame = new JFrame("MostrarAdmin");
+                frame.setContentPane(new borrarUserAdmin() .panelborraruser);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setSize(800, 800);
+                frame.setVisible(true);
+
+                // Cierra la ventana actual del perfil de administrador
+                ((JFrame) SwingUtilities.getWindowAncestor(BORRARUSERButton)).dispose();
+
+            }
+        });
+
+        // ActionListener para el botón VISUALIZARButton1USER, para ir al panel de VISUALIZAR PROFESORES O ESTUDIANTES
+        VISUALIZARButton1USER.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                // Crear una nueva ventana para el módulo de registrr
+                JFrame frame = new JFrame("MostrarAdmin");
+                frame.setContentPane(new mostrarUserAdmin().panelmostrarUser);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
+
+                // Cierra la ventana actual del perfil de administrador
+                ((JFrame) SwingUtilities.getWindowAncestor(VISUALIZARButton1USER)).dispose();
             }
         });
     }

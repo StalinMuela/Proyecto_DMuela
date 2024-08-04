@@ -1,5 +1,6 @@
-package Login;
+package Administrador;
 
+import Login.form1;
 import org.mindrot.jbcrypt.BCrypt;
 import java.sql.*;
 import javax.swing.*;
@@ -10,7 +11,7 @@ import java.awt.event.ActionListener;
  * La clase {@code registro} es una clase general de MiAulaESFOT.
  * Su función principal reservar aulas
  */
-public class registro {
+public class registroUserAdmin {
     /**
      * Panel para mostrar el registro de personal de mi Aula Esfot
      */
@@ -37,7 +38,7 @@ public class registro {
      * Constructor de la clase {@code registro}
      * Configura los botones y sus respectivos eventos
      */
-    public registro() {
+    public registroUserAdmin() {
 
         // ActionListener para el botón comboBox1, para mostrar registro Estuidante o Profesor
         comboBox1.addActionListener(new ActionListener() {
@@ -169,7 +170,7 @@ public class registro {
 
                 //Crea un panel que permite regresa al INICIO SE SESION
                 JFrame frame = new JFrame("Inicio de Sesion MiAulaESFOT");
-                frame.setContentPane(new form1().panel1);
+                frame.setContentPane(new PerfilAdmin().paneladmin);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(200, 300);
                 frame.pack();

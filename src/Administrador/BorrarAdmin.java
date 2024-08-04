@@ -24,7 +24,7 @@ public class BorrarAdmin {
     private JButton BORRARButtonAULA;
     private JButton REGRESARButton;
 
-    //Crea unas constasten que permite la conexion con BASE DE DATOS
+    //Crea unas constantes que permite la conexion con BASE DE DATOS
     private static final String url = "jdbc:mysql://localhost:3306/miaulaesfot";
     private static final String user = "root";
     private static final String password = "123456";

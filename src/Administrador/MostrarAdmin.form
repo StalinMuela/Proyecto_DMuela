@@ -36,7 +36,7 @@
         <properties>
           <background color="-14207895"/>
           <foreground color="-2"/>
-          <visible value="false"/>
+          <visible value="true"/>
         </properties>
         <border type="none"/>
         <children>

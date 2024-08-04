@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Administrador.PerfilAdmin">
-  <grid id="27dc6" binding="paneladmin" layout-manager="GridLayoutManager" row-count="6" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="paneladmin" layout-manager="GridLayoutManager" row-count="7" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="15" left="15" bottom="15" right="15"/>
     <constraints>
-      <xy x="20" y="20" width="395" height="496"/>
+      <xy x="20" y="20" width="409" height="651"/>
     </constraints>
     <properties>
       <background color="-16769218"/>
       <foreground color="-2"/>
-      <preferredSize width="400" height="550"/>
+      <preferredSize width="400" height="700"/>
     </properties>
     <border type="none">
       <font name="Franklin Gothic Heavy" size="16" style="0"/>
@@ -23,7 +23,7 @@
         <properties>
           <background color="-16769218"/>
         </properties>
-        <border type="none" title="OPCIONES" title-justification="1">
+        <border type="none" title="GESTIONAR AULAS / LABORATORIOS" title-justification="1">
           <font name="Franklin Gothic Heavy" size="14" style="0"/>
           <title-color color="-1574403"/>
         </border>
@@ -41,7 +41,7 @@
               <background color="-13947600"/>
               <font style="1"/>
               <foreground color="-2"/>
-              <text value="VISUALIZAR"/>
+              <text value="VISUALIZAR LAB/AULAS"/>
             </properties>
           </component>
           <vspacer id="49a55">
@@ -62,7 +62,7 @@
               <background color="-5889485"/>
               <font style="1"/>
               <foreground color="-2"/>
-              <text value="BORRAR"/>
+              <text value="BORRAR AU/LAB"/>
             </properties>
           </component>
           <component id="ed0c8" class="javax.swing.JButton" binding="AGREGARButton" default-binding="true">
@@ -73,7 +73,70 @@
               <background color="-13947600"/>
               <font style="1"/>
               <foreground color="-2"/>
-              <text value="AGREGAR"/>
+              <text value="AGREGAR AULA/LAB"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="7262b" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="15" left="15" bottom="15" right="15"/>
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="6" vsize-policy="7" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="true"/>
+        </constraints>
+        <properties>
+          <background color="-16769218"/>
+        </properties>
+        <border type="none" title="GESTIONAR USUARIOS" title-justification="1">
+          <font name="Franklin Gothic Heavy" size="14" style="0"/>
+          <title-color color="-1574403"/>
+        </border>
+        <children>
+          <vspacer id="5eedc">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="e18ca" class="javax.swing.JButton" binding="VISUALIZARButton1USER">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13947600"/>
+              <font style="1"/>
+              <foreground color="-2"/>
+              <text value="VISUALIZAR USUARIOS"/>
+            </properties>
+          </component>
+          <vspacer id="d7b">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="50c57">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="4442e" class="javax.swing.JButton" binding="BORRARUSERButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-5889485"/>
+              <font style="1"/>
+              <foreground color="-2"/>
+              <text value="BORRAR USER"/>
+            </properties>
+          </component>
+          <component id="46d0e" class="javax.swing.JButton" binding="AGREGARUSUARIOSButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13947600"/>
+              <font style="1"/>
+              <foreground color="-2"/>
+              <text value="AGREGAR USUARIOS"/>
             </properties>
           </component>
         </children>
