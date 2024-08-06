@@ -55,7 +55,47 @@ B) CONFIGURACIÓN
              } catch (SQLException e1) {
                System.out.println(e1.getMessage());
              }
+
+
+2. ORGANIZACION DEL PROYECTO
+
+
+![image](https://github.com/user-attachments/assets/d8618c33-4afe-40d3-bd8f-61191b9feed9)
+
+Se planteó la clasificación de los módulos, organizándolos para un entendimiento claro y específico. Los módulos se dividen en las siguientes categorías:
+
+      Administrador: Contiene el CRUD para aulas y laboratorios, así como el CRUD de usuarios.
+      Clase: Incluye los atributos relacionados con las clases y laboratorios.
+      Estudiante: Maneja las acciones relacionadas con los estudiantes.
+      Login: Se encarga del inicio de sesión.
+      Profesores: Contiene las acciones específicas para los profesores.
+      Imagenes: Contiene las imagenes requeridas para el proyecto.
+      Base de datos: Donde se almacena la estructura y la información relevante del sistema.
+
+3. MODELO DE LA BASE DE DATOS
+
+   3.1 USUARIOS
    
+         Se inicializa con 3 tablas adecuadas con los usuarios requeridos para el sistema
+         - Estudiantes
+         - Profesores
+         - Administrador
+
+      ![image](https://github.com/user-attachments/assets/68cb699f-6496-45dd-8d17-90a535581a99)
+
+   3.2 AULAS
+   
+
+         Se inicializa la tabla para la reserva de aulas la cual requiere los siguientes atributos
+      ![image](https://github.com/user-attachments/assets/45bfbbbe-26a7-4d7c-bb95-c2b91a1f9984)
+
+
+   3.3 LABORATORIOS
+   
+         Se inicializa la tabla para la reserva de laboratorios la cual requiere los siguientes atributos
+
+      ![image](https://github.com/user-attachments/assets/64a82b08-6566-4636-833c-420586bbfff8)
+
 
 
 C) EJECUCIÓN
