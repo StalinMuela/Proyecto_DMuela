@@ -1,4 +1,10 @@
-PROYECTO "MI AULA ESFOT" PROGRAMACION ORIENTADO A OBJECTOS
+MI AULA ESFOT 
+
+PROYECTO DE PROGRAMACION ORIENTADO A OBJECTOS
+
+Mejorar la eficiencia en el proceso de reserva de aulas y laboratorios en la ESFOT que permita una agilización al momento de reservar.
+
+
 
 A) INSTALACIÓN
 
