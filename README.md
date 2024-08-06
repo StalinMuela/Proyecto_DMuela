@@ -102,17 +102,79 @@ C) EJECUCIÓN
 
 1. USO
    
-         1.1. Login
-            Los usuarios pueden acceder al sistema con diferentes roles: 
-            1.1.1. Administrador: Gestiona usuarios, aulas y laboratorios.
-            1.1.2. Profesor: Puede reservar aulas o laboratorios.
-            1.1.3. Estudiante: Puede reservar aulas.
-         2. Funcionalidades
-            2.1 Administrador:
-               2.1.1. Gestionar usuarios (crear, editar, eliminar).
-               2.1.2. Gestionar aulas y laboratorios (crear, editar, eliminar).
-            2.2. Profesor:
-               2.2.1. Reservar aulas o laboratorios.
-            2.3. Estudiantes:
-               2.3.1. Reservar aulas.
+         1. Login
+         Los usuarios pueden acceder al sistema con diferentes roles:
 
+   ![image](https://github.com/user-attachments/assets/5277434c-47f0-4cf5-9328-9d7f869f5f9a)
+
+         
+         1.1. Administrador
+         
+         Funcionalidades:
+         Gestionar todos los aspectos del sistema, incluyendo la administración de usuarios
+         Gestión de aulas y laboratorios (Permite Crear, Eliminar, Visualizar)
+
+         1.1.1. AULAS Y LABORATORIOS
+         
+
+   ![image](https://github.com/user-attachments/assets/d50c1838-bc77-472c-909b-aac715aaed8f)
+
+   ![image](https://github.com/user-attachments/assets/60c86030-d915-4ab0-8998-ee10160ddb56)
+
+   ![image](https://github.com/user-attachments/assets/a61c8293-1961-4a6f-a27b-a073de64ea2c)
+
+
+         1.1.2. USUARIOS
+
+   ![image](https://github.com/user-attachments/assets/948a3da2-3677-4dba-aec2-0ca3029c6c34)
+
+   ![image](https://github.com/user-attachments/assets/b08d25e2-ab49-492d-8134-aeb93464ee06)
+
+   ![image](https://github.com/user-attachments/assets/08884b08-5d98-49fa-828a-f7bf728d89a2)
+
+
+         1.2. Profesor
+         
+         Funcionalidades:
+         Realizar reservas de aulas y laboratorios para su uso.
+         Consultar la disponibilidad de estos espacios.
+         Efectuar reservas según sus necesidades y cancelar reservas si es necesario.
+
+   ![image](https://github.com/user-attachments/assets/7978b08e-6de4-4dea-bae2-6daadd4cf904)
+
+
+         1.3. Estudiante
+         
+         Funcionalidades:
+         Reservar aulas para sus actividades académicas.
+         Ver la disponibilidad de las aulas y realizar reservas según sus requerimientos
+         Cancelar aulas que ya no sean necesarias.
+   
+   ![image](https://github.com/user-attachments/assets/8ab82c32-3c3a-47be-836b-c7110a013230)
+
+         2. Funcionalidades
+         
+         2.1. Administrador
+         
+         Gestionar usuarios:
+         Crear nuevos perfiles de usuario en el sistema.
+         Eliminar usuarios que ya no requieran acceso al sistema.
+         Gestionar aulas y laboratorios:
+         Añadir nuevas aulas y laboratorios al sistema.
+         Visualizar la información de los espacios existentes.
+         Eliminar espacios que ya no estén en uso o que necesiten ser retirados del sistema.
+   
+         2.2. Profesor
+         
+         Reservar aulas o laboratorios:
+         Realizar reservas para aulas o laboratorios.
+         Verificar la disponibilidad de estos espacios antes de efectuar la reserva.
+         Cancelar aulas y laboratorios.
+
+   
+         2.3. Estudiantes
+         
+         Reservar aulas:
+         Conocer la disponibilidad de aulas.
+         Realizar reservas según sus requerimientos.
+         Cancelar aulas.
