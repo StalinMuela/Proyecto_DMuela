@@ -7,7 +7,7 @@
     </constraints>
     <properties>
       <background color="-16769218"/>
-      <preferredSize width="550" height="650"/>
+      <preferredSize width="550" height="670"/>
     </properties>
     <border type="none"/>
     <children>
@@ -71,7 +71,7 @@
         </constraints>
         <properties>
           <background color="-16769218"/>
-          <visible value="true"/>
+          <visible value="false"/>
         </properties>
         <border type="none" title="Profesores">
           <font name="Franklin Gothic Heavy"/>
@@ -252,7 +252,7 @@
         </constraints>
         <properties>
           <background color="-16769218"/>
-          <visible value="true"/>
+          <visible value="false"/>
         </properties>
         <border type="none" title="Estudiantes">
           <font name="Franklin Gothic Heavy"/>

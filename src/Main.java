@@ -33,7 +33,7 @@ public class Main {
         //Permite crear un panel conocido como INICIO DE SESION
 
         JFrame frame = new JFrame("GESTION AULAS ESFOT");
-        frame.setContentPane(new PerfilAdmin().paneladmin);
+        frame.setContentPane(new form1().panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         frame.setSize(800, 600);
