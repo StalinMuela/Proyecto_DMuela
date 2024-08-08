@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"Administrador"},{"l":"All Packages","u":"allpackages-index.html"},{"l":"Clases"},{"l":"Estudiantes"},{"l":"Login"},{"l":"Profesores"}];updateSearchResults();
